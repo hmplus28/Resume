@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رزومه حمیدرضا مهرآبادی</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.6.6/css/flag-icons.min.css">
+    <style>
+        :root {
+            --primary-color: #1a237e;
+            --secondary-color: #3949ab;
+            --accent-color: #5c6bc0;
+            --light-accent: #e8eaf6;
+            --text-color: #263238;
+            --light-text: #546e7a;
+            --background: #f5f7fa;
+            --card-bg: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
+            --header-bg: linear-gradient(135deg, #4e6aff, #00b8d4);
+            --senior-color: #4caf50;
+            --mid-color: #2196f3;
+            --junior-color: #ff9800;
+            --learning-color: #9c27b0;
+            --english-color: #2196f3;
+            --arabic-color: #4caf50;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--background);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .poster-container {
+            width: 720px;
+            min-height: 960px;
+            margin: 0 auto;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+        .poster-container::before {
+            content: "";
+            position: absolute;
+            top: -150px;
+            right: -150px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            opacity: 0.1;
+            z-index: -1;
+        }
+        .poster-container::after {
+            content: "";
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            opacity: 0.1;
+            z-index: -1;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .header-card {
+            background: var(--header-bg);
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        .header-card::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff9800, #ff5722);
+        }
+        .photo-container {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            flex-shrink: 0;
+        }
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .header-info {
+            flex: 1;
+        }
+        .name {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+        .personality {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-title .material-icons {
+            font-size: 20px;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .contact-item .material-icons {
+            color: var(--accent-color);
+            font-size: 18px;
+        }
+        .contact-item a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .contact-item a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+        .contact-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            margin: 15px 0;
+        }
+        .left-aligned {
+            text-align: left;
+            direction: ltr;
+        }
+        .skill-group {
+            margin-bottom: 15px;
+            direction: ltr;
+        }
+        .skill-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .skill-level {
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .skill-icon {
+            font-size: 18px;
+        }
+        .senior-icon {
+            color: var(--senior-color);
+        }
+        .mid-icon {
+            color: var(--mid-color);
+        }
+        .junior-icon {
+            color: var(--junior-color);
+        }
+        .learning-icon {
+            color: var(--learning-color);
+        }
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .skill-tag {
+            background-color: var(--light-accent);
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 16px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .language-item {
+            margin-bottom: 20px;
+        }
+        .language-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .language-name {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 16px;
+        }
+        .language-flag {
+            font-size: 24px;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .language-skill {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .skill-name {
+            width: 60px;
+        }
+        .skill-bar {
+            flex: 1;
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            margin: 0 10px;
+            overflow: hidden;
+        }
+        .skill-progress {
+            height: 100%;
+            border-radius: 4px;
+        }
+        .english-progress {
+            background-color: var(--english-color);
+        }
+        .arabic-progress {
+            background-color: var(--arabic-color);
+        }
+        .skill-percent {
+            font-size: 12px;
+            color: var(--light-text);
+        }
+        .timeline-item {
+            position: relative;
+            padding-right: 20px;
+            margin-bottom: 15px;
+        }
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 8px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+        }
+        .timeline-item::after {
+            content: "";
+            position: absolute;
+            right: 4px;
+            top: 18px;
+            width: 2px;
+            height: calc(100% + 10px);
+            background-color: var(--light-accent);
+        }
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        .degree, .job-title {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        .university, .company {
+            font-size: 14px;
+            color: var(--light-text);
+        }
+        .date {
+            font-size: 13px;
+            color: var(--light-text);
+            margin-top: 2px;
+        }
+        .project-status {
+            display: inline-block;
+            background-color: #e3f2fd;
+            color: var(--secondary-color);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .achievement-item {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .achievement-item .material-icons {
+            color: var(--accent-color);
+            font-size: 16px;
+            margin-top: 3px;
+        }
+        .goal-item, .soft-skill-item, .hard-skill-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .goal-item .material-icons, .soft-skill-item .material-icons, .hard-skill-item .material-icons {
+            color: var(--accent-color);
+            font-size: 16px;
+        }
+        .highlight {
+            background: linear-gradient(transparent 60%, rgba(92, 107, 192, 0.2) 40%);
+            padding: 0 2px;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .full-width {
+            grid-column: span 2;
+        }
+        .colored-card {
+            background: linear-gradient(135deg, #f5f7fa, #e3f2fd);
+        }
+        .english-skill-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            width: 100%;
+        }
+        .english-skill-tag {
+            background-color: var(--light-accent);
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 16px;
+            font-size: 13px;
+            font-weight: 500;
+            text-align: left;
+            direction: ltr;
+        }
+        .contact-group {
+            margin-bottom: 15px;
+        }
+        .contact-group-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .download-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .download-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .download-btn .material-icons {
+            margin-left: 8px;
+            font-size: 18px;
+        }
+        .project-container {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .project-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        .project-platform {
+            font-size: 14px;
+            color: var(--light-text);
+            margin-bottom: 10px;
+        }
+        .project-description {
+            font-size: 14px;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+        .tech-tag {
+            background-color: var(--light-accent);
+            color: var(--primary-color);
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .high-priority {
+            background-color: rgba(255, 193, 7, 0.2);
+            border-right: 3px solid #ffc107;
+            padding-right: 10px;
+        }
+        .medium-priority {
+            background-color: rgba(33, 150, 243, 0.1);
+            border-right: 3px solid #2196f3;
+            padding-right: 10px;
+        }
+        .normal-priority {
+            background-color: rgba(255, 255, 255, 0.5);
+            padding-right: 10px;
+        }
+        .project-gallery {
+            display: flex;
+            gap: 10px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .gallery-item {
+            width: 150px;
+            height: 100px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .project-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+        .project-actions {
+            display: flex;
+            gap: 10px;
+        }
+        /* استایل دکمه "امتحان کنید" */
+        .run-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 15px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .run-btn:hover {
+            background-color: #388e3c;
+        }
+        .run-btn .material-icons {
+            font-size: 16px;
+        }
+        .docs-btn, .github-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 15px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .docs-btn:hover, .github-btn:hover {
+            background-color: var(--primary-color);
+        }
+        .github-btn {
+            background-color: #333;
+        }
+        .github-btn:hover {
+            background-color: #000;
+        }
+        .docs-btn .material-icons, .github-btn .material-icons {
+            font-size: 16px;
+        }
+        .category-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid var(--light-accent);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .category-title .material-icons {
+            font-size: 20px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+            animation: fadeIn 0.4s;
+        }
+        @keyframes fadeIn {
+            from {opacity: 0}
+            to {opacity: 1}
+        }
+        .modal-content {
+            background-color: var(--card-bg);
+            margin: 5% auto;
+            padding: 20px;
+            border: none;
+            width: 80%;
+            max-width: 700px;
+            border-radius: var(--radius);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            animation: slideIn 0.4s;
+            direction: rtl;
+        }
+        @keyframes slideIn {
+            from {transform: translateY(-50px); opacity: 0;}
+            to {transform: translateY(0); opacity: 1;}
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--light-accent);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .modal-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .close:hover,
+        .close:focus {
+            color: var(--primary-color);
+        }
+        .modal-body {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .modal-body h3 {
+            color: var(--secondary-color);
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .modal-body p {
+            margin-bottom: 10px;
+        }
+        .modal-body ul {
+            list-style-type: none;
+            padding-right: 20px;
+        }
+        .modal-body li {
+            position: relative;
+            margin-bottom: 8px;
+        }
+        .modal-body li::before {
+            content: "•";
+            position: absolute;
+            right: -15px;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        .code-block {
+            background-color: #f5f5f5;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 15px;
+            font-family: monospace;
+            font-size: 13px;
+            line-height: 1.5;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        .api-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .api-link:hover {
+            text-decoration: underline;
+        }
+        .online-resume-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #d32f2f;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .online-resume-link:hover {
+            color: #b71c1c;
+        }
+        .online-resume-link .material-icons {
+            font-size: 20px;
+        }
+        /* استایل‌های جدید برای پاپ‌آپ تصویر */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            cursor: pointer;
+            animation: fadeIn 0.3s;
+        }
+        .image-modal-content {
+            position: relative;
+            margin: auto;
+            padding: 0;
+            width: 90%;
+            max-width: 900px;
+            height: 90%;
+            max-height: 700px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: zoomIn 0.3s;
+        }
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        .image-modal-content img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: var(--radius);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+        }
+        .image-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+            z-index: 1002;
+        }
+        .image-modal-close:hover {
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="poster-container">
+        <div class="card header-card">
+            <div class="photo-container">
+                <img src="Pic.jpg" alt="حمیدرضا مهرآبادی" class="profile-photo">
+            </div>
+            <div class="header-info">
+                <div class="name">حمیدرضا مهرآبادی</div>
+                <div class="title">توسعه دهنده Back-End</div>
+                <div class="personality">ISTJ</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="section-title">
+                <span class="material-icons">contact_page</span>
+                اطلاعات تماس
+            </div>
+            <div class="contact-group">
+                <div class="contact-item">
+                    <span class="material-icons">phone</span>
+                    <span>09301900569</span>
+                </div>
+                <div class="contact-item">
+                    <span class="material-icons">location_on</span>
+                    <span>مشهد – خراسان رضوی</span>
+                </div>
+            </div>
+            <div class="contact-divider"></div>
+            <div class="contact-group">
+                <div class="contact-item left-aligned">
+                    <span class="material-icons">email</span>
+                    <a href="mailto:hmplus28@gmail.com">hmplus28@gmail.com</a>
+                </div>
+                <div class="contact-item left-aligned">
+                    <span class="material-icons">code</span>
+                    <a href="https://github.com/hmplus" target="_blank">github.com/hmplus</a>
+                </div>
+                <div class="contact-item left-aligned">
+                    <span class="material-icons">business_center</span>
+                    <a href="https://linkedin.com/in/hamidreza-mehrabadi-6a6439322" target="_blank">linkedin.com/in/hamidreza-mehrabadi-6a6439322</a>
+                </div>
+                <div class="contact-item">
+                    <span class="material-icons" style="color: #d32f2f;">warning</span>
+                    <a href="https://hamidreza-mehrabadi.netlify.app/" target="_blank" class="online-resume-link">
+                       برای مشاهده آنلاین رزومه و مستندات، اینجا را کلیک فرمایید.
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="grid-container">
+            <div class="card colored-card">
+                <div class="section-title">
+                    <span class="material-icons">code</span>
+                    مهارت‌های فنی
+                </div>
+                <div class="skill-group">
+                    <div class="skill-header">
+                        <span class="material-icons skill-icon senior-icon">star</span>
+                        <div class="skill-level" style="color: var(--senior-color);">Senior:</div>
+                    </div>
+                    <div class="english-skill-container">
+                        <div class="english-skill-tag">Python</div>
+                        <div class="english-skill-tag">C++</div>
+                        <div class="english-skill-tag">JavaScript</div>
+                        <div class="english-skill-tag">HTML</div>
+                        <div class="english-skill-tag">CSS</div>
+                        <div class="english-skill-tag">Bootstrap</div>
+                        <div class="english-skill-tag">GitHub</div>
+                        <div class="english-skill-tag">Git</div>
+                        <div class="english-skill-tag">GitLab</div>
+                        <div class="english-skill-tag">ICDL</div>
+                        <div class="english-skill-tag">Visual Paradigm</div>
+                        <div class="english-skill-tag">Ubunto</div>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-header">
+                        <span class="material-icons skill-icon mid-icon">trending_up</span>
+                        <div class="skill-level" style="color: var(--mid-color);">Mid-level:</div>
+                    </div>
+                    <div class="english-skill-container">
+                        <div class="english-skill-tag">Django</div>
+                        <div class="english-skill-tag">Django REST Framework</div>
+                        <div class="english-skill-tag">MySQL</div>
+                        <div class="english-skill-tag">SQLite</div>
+                        <div class="english-skill-tag">REST API</div>
+                        <div class="english-skill-tag">Redis</div>
+                        <div class="english-skill-tag">MATLAB</div>
+                        <div class="english-skill-tag">Power BI</div>
+                        <div class="english-skill-tag">n8n</div>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-header">
+                        <span class="material-icons skill-icon junior-icon">school</span>
+                        <div class="skill-level" style="color: var(--junior-color);">Junior:</div>
+                    </div>
+                    <div class="english-skill-container">
+                        <div class="english-skill-tag">Node.js</div>
+                        <div class="english-skill-tag">Mocha</div>
+                        <div class="english-skill-tag">Chai</div>
+                        <div class="english-skill-tag">Django Channels</div>
+                        <div class="english-skill-tag">Channels Redis</div>
+                        <div class="english-skill-tag">Daphne</div>
+                        <div class="english-skill-tag">django-cors-headers</div>
+                        <div class="english-skill-tag">Pandas</div>
+                        <div class="english-skill-tag">NumPy</div>
+                        <div class="english-skill-tag">openpyxl</div>
+                        <div class="english-skill-tag">Pillow</div>
+                        <div class="english-skill-tag">Figma</div>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-header">
+                        <span class="material-icons skill-icon learning-icon">auto_stories</span>
+                        <div class="skill-level" style="color: var(--learning-color);">Currently Learning:</div>
+                    </div>
+                    <div class="english-skill-container">
+                        <div class="english-skill-tag">k6</div>
+                        <div class="english-skill-tag">React</div>
+                    </div>
+                </div>
+            </div>
+            <div class="card colored-card">
+                <div class="section-title">
+                    <span class="material-icons">language</span>
+                    زبان‌ها
+                </div>
+                <div class="language-item">
+                    <div class="language-header">
+                        <span class="fi fi-gb language-flag"></span>
+                        <div class="language-name">انگلیسی</div>
+                    </div>
+                    <div class="language-skill">
+                        <div class="skill-name">خواندن</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress english-progress" style="width: 75%"></div>
+                        </div>
+                        <div class="skill-percent">75%</div>
+                    </div>
+                    <div class="language-skill">
+                        <div class="skill-name">نوشتن</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress english-progress" style="width: 60%"></div>
+                        </div>
+                        <div class="skill-percent">60%</div>
+                    </div>
+                    <div class="language-skill">
+                        <div class="skill-name">مکالمه</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress english-progress" style="width: 50%"></div>
+                        </div>
+                        <div class="skill-percent">50%</div>
+                    </div>
+                </div>
+                <div class="language-item">
+                    <div class="language-header">
+                        <span class="fi fi-iq language-flag"></span>
+                        <div class="language-name">عربی</div>
+                    </div>
+                    <div class="language-skill">
+                        <div class="skill-name">خواندن</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress arabic-progress" style="width: 90%"></div>
+                        </div>
+                        <div class="skill-percent">90%</div>
+                    </div>
+                    <div class="language-skill">
+                        <div class="skill-name">نوشتن</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress arabic-progress" style="width: 80%"></div>
+                        </div>
+                        <div class="skill-percent">80%</div>
+                    </div>
+                    <div class="language-skill">
+                        <div class="skill-name">مکالمه</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress arabic-progress" style="width: 50%"></div>
+                        </div>
+                        <div class="skill-percent">50%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-container">
+            <div class="card colored-card">
+                <div class="section-title">
+                    <span class="material-icons">school</span>
+                    سوابق تحصیلی
+                </div>
+                <div class="timeline-item">
+                    <div class="degree">کارشناسی مهندسی کامپیوتر</div>
+                    <div class="university">
+                        <a href="https://birjandut.ac.ir//" target="_blank">
+                                 دانشگاه صنعتی بیرجند
+                            </a>
+                       </div>
+                    <div class="date">1400 - 1404</div>
+                </div>
+            </div>
+            <div class="card colored-card">
+                <div class="section-title">
+                    <span class="material-icons">work</span>
+                    سوابق شغلی
+                </div>
+                <div class="timeline-item">
+                    <div class="job-title">کارشناس تست نرم افزار</div>
+                    <div class="company">
+                            <a href="https://partsoftware.com/" target="_blank">
+                                گروه نرم افزاری پارت
+                            </a>
+                        </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="job-title">کارآموز ASP.NET</div>
+                    <div class="company">
+                        <a href="https://mapnaom.com/operation/neishabour/?lang=fa" target="_blank">
+                                نیروگاه سیکل ترکیبی نیشابور
+                        </a>
+                        
+
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="job-title">کارآموز اداره آموزش</div>
+                    <div class="company">
+                        <a href="https://kscco.ir/" target="_blank">
+                                مجتمع فولاد خراسان
+                        </a>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="card colored-card">
+            <div class="section-title">
+                <span class="material-icons">integration_instructions</span>
+                پروژه‌ها
+            </div>
+
+            <div class="project-category">
+                <h3 class="category-title">
+                    <span class="material-icons">work</span>
+                    کاری
+                </h3>
+                <div class="project-container">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">سامانه تیکتینگ و نظرسنجی دانشگاه صنعتی بیرجند</div>
+                            <div class="project-platform">وب (پروژه کارشناسی)</div>
+                        </div>
+                        <div class="project-actions">
+                            <button class="docs-btn" onclick="openModal('modal2')">
+                                <span class="material-icons">description</span>
+                                مستندات
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-description">
+                        سیستمی جامع برای مدیریت تیکت‌های پشتیبانی و جمع‌آوری نظرات دانشجویان و اساتید دانشگاه. این سامانه امکان ثبت، پیگیری و پاسخگویی به درخواست‌ها را فراهم می‌کند و همچنین ابزارهای تحلیلی برای بررسی بازخوردها ارائه می‌دهد.
+                    </div>
+                    <div class="tech-tags">
+                        <div class="tech-tag">Django</div>
+                        <div class="tech-tag">Django REST Framework</div>
+                        <div class="tech-tag">Django Channels</div>
+                        <div class="tech-tag">Channels Redis</div>
+                        <div class="tech-tag">Daphne</div>
+                        <div class="tech-tag">django-cors-headers</div>
+                        <div class="tech-tag">Pandas</div>
+                        <div class="tech-tag">NumPy</div>
+                        <div class="tech-tag">openpyxl</div>
+                        <div class="tech-tag">Pillow</div>
+                        <div class="tech-tag">MySQL</div>
+                        <div class="tech-tag">HTML/CSS</div>
+                        <div class="tech-tag">JavaScript</div>
+                        <div class="tech-tag">Bootstrap</div>
+                        <div class="tech-tag">React</div>
+                    </div>
+                    <div class="project-gallery">
+                        <a href="https://s6.uupload.ir/files/main_7ckt.png" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/main_7ckt.png" alt="تصویر پروژه ۲">
+                        </a>
+                        <a href="https://s6.uupload.ir/files/dash_6i6o.png" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/dash_6i6o.png" alt="تصویر پروژه ۲">
+                        </a>
+                        <a href="https://s6.uupload.ir/files/p_a1wa.png" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/p_a1wa.png" alt="تصویر پروژه ۲">
+                        </a>
+                        <a href="https://s6.uupload.ir/files/t_vsni.png" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/t_vsni.png" alt="تصویر پروژه ۲">
+                        </a>
+                        <a href="https://s6.uupload.ir/files/panel_c71c.png" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/panel_c71c.png" alt="تصویر پروژه ۲">
+                        </a>
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-status">در حال استقرار بر روی سرور</div>
+                    </div>
+                </div>
+                <div class="project-container">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">سامانه تحلیل فرکانس</div>
+                            <div class="project-platform">مرکز نوآوری</div>
+                        </div>
+                        <div class="project-actions">
+                            <button class="docs-btn" onclick="openModal('modal1')">
+                                <span class="material-icons">description</span>
+                                مستندات
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-description">
+                        این سامانه یک بستر تحت وب می‌باشد که در آن کدهای خاصی که تحلیل فرکانس را برای استفاده‌های صنعتی انجام می‌دهند، قرار گرفته است. من در این پروژه داشبورد (فرانت‌اند)، سیستم احراز هویت و API ارتباطی با سیستم تحلیل فرکانس را طراحی نمودم.
+                    </div>
+                    <div class="tech-tags">
+                        <div class="tech-tag">Python</div>
+                        <div class="tech-tag">Django</div>
+                        <div class="tech-tag">HTML</div>
+                        <div class="tech-tag">CSS</div>
+                        <div class="tech-tag">JavaScript</div>
+                        <div class="tech-tag">Bootstrap</div>
+                    </div>
+                    <div class="project-gallery">
+                        <a href="https://s6.uupload.ir/files/histo_jge.png" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/histo_jge.png" alt="تصویر پروژه ۱">
+                        </a>
+                        <a href="https://s6.uupload.ir/files/login_y8hq.png" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/login_y8hq.png" alt="تصویر پروژه ۱">
+                        </a>
+                        <a href="https://s6.uupload.ir/files/main_ren3.png" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/main_ren3.png" alt="تصویر پروژه ۱">
+                        </a>
+                        <a href="https://s6.uupload.ir/files/newamal_zbth.png" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/newamal_zbth.png" alt="تصویر پروژه ۱">
+                        </a>
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-status">انجام شده</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-category">
+                <h3 class="category-title">
+                    <span class="material-icons">school</span>
+                    تحصیلی
+                </h3>
+                <div class="project-container">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">شبیه‌ساز ماشین تورینگ گام به گام</div>
+                            <div class="project-platform">پروژه درس نظریه زبان‌ها و ماشین‌ها</div>
+                        </div>
+                        <div class="project-actions">
+                            <button class="docs-btn" onclick="openModal('modal3')">
+                                <span class="material-icons">description</span>
+                                مستندات
+                            </button>
+                            <a href="https://github.com/hmplus28/turing-machine-simulation-step-to-step" target="_blank" class="github-btn">
+                                <span class="material-icons">code</span>
+                                گیت‌هاب
+                            </a>
+                            <button class="run-btn" onclick="window.open('https://turing-machine-simulation.netlify.app/', '_blank')">
+                                <span class="material-icons">play_arrow</span>
+                                امتحان کنید
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-description">
+                        این پروژه یک شبیه‌ساز کامل برای ماشین تورینگ است که به صورت گام به گام عملیات را نمایش می‌دهد. کاربر می‌تواند ماشین تورینگ خود را تعریف کرده و مراحل اجرای آن را به صورت بصری مشاهده کند. این ابزار برای آموزش مفاهیم نظریه زبان‌ها و ماشین‌ها بسیار مفید است.
+                    </div>
+                    <div class="tech-tags">
+                        <div class="tech-tag">Python</div>
+                        <div class="tech-tag">Tkinter</div>
+                        <div class="tech-tag">GUI</div>
+                    </div>
+                    <div class="project-gallery">
+                        <a href="https://s6.uupload.ir/files/main_2hc1.png" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/main_2hc1.png" alt="تصویر پروژه تورینگ">
+                        </a>
+                        <a href="https://s6.uupload.ir/files/help_0bwv.png" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/help_0bwv.png" alt="تصویر پروژه تورینگ">
+                        </a>
+                        <a href="https://s6.uupload.ir/files/sen_0beq.png" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/sen_0beq.png" alt="تصویر پروژه تورینگ">
+                        </a>
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-status">انجام شده</div>
+                    </div>
+                </div>
+                <div class="project-container">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">وب‌سایت بازاریابی دیجیتال</div>
+                            <div class="project-platform">پروژه درس مهندسی اینترنت</div>
+                        </div>
+                        <div class="project-actions">
+                            <button class="docs-btn" onclick="openModal('modal4')">
+                                <span class="material-icons">description</span>
+                                مستندات
+                            </button>
+                            <a href="https://github.com/hmplus28/Digital-Marketing-website" target="_blank" class="github-btn">
+                                <span class="material-icons">code</span>
+                                گیت‌هاب
+                            </a>
+                            <button class="run-btn" onclick="window.open('https://free-digitial-markenitng-webinar.netlify.app/', '_blank')">
+                                <span class="material-icons">play_arrow</span>
+                                امتحان کنید
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-description">
+                        یک صفحه از وب‌سایتی برای ارائه خدمات بازاریابی دیجیتال با طراحی مدرن. این پروژه شامل بخش‌های مختلف برای معرفی خدمات، نمونه کارها، تیم و تماس با ما است.
+                    </div>
+                    <div class="tech-tags">
+                        <div class="tech-tag">HTML5</div>
+                        <div class="tech-tag">CSS3</div>
+                        <div class="tech-tag">JavaScript</div>
+                        <div class="tech-tag">Bootstrap</div>
+                    </div>
+                    <div class="project-gallery">
+                        <a href="https://s6.uupload.ir/files/1_nezs.png" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/1_nezs.png" alt="تصویر وب‌سایت دیجیتال مارکتینگ">
+                        </a>
+                        <a href="https://s6.uupload.ir/files/2_jnak.png" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/2_jnak.png" alt="تصویر وب‌سایت دیجیتال مارکتینگ">
+                        </a>
+                        <a href="https://s6.uupload.ir/files/3_888q.png" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/3_888q.png" alt="تصویر وب‌سایت دیجیتال مارکتینگ">
+                        </a>
+                        <a href="https://s6.uupload.ir/files/4_pjzm.png" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/4_pjzm.png" alt="تصویر وب‌سایت دیجیتال مارکتینگ">
+                        </a>
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-status">انجام شده</div>
+                    </div>
+                </div>
+                <div class="project-container">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">بازیابی پایگاه داده - پروژه آموزشی</div>
+                            <div class="project-platform">پروژه درس پیاده‌سازی سیستم پایگاه داده</div>
+                        </div>
+                        <div class="project-actions">
+                            <button class="docs-btn" onclick="openModal('modal5')">
+                                <span class="material-icons">description</span>
+                                مستندات
+                            </button>
+                            <a href="https://github.com/hmplus28/DataBase-Recovery-learning" target="_blank" class="github-btn">
+                                <span class="material-icons">code</span>
+                                گیت‌هاب
+                            </a>
+                            <button class="run-btn" onclick="window.open('https://database-recovery-learning.netlify.app/', '_blank')">
+                                <span class="material-icons">play_arrow</span>
+                                امتحان کنید
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-description">
+                        این پروژه به بررسی و پیاده‌سازی الگوریتم‌های مختلف بازیابی اطلاعات در پایگاه‌های داده می‌پردازد. در این پروژه، روش‌های مختلف بازیابی پس از خرابی‌های مختلف نرم‌افزاری و سخت‌افزاری پیاده‌سازی شده است.
+                    </div>
+                    <div class="tech-tags">
+                        <div class="tech-tag">SQL</div>
+                        <div class="tech-tag">Database Recovery</div>
+                        <div class="tech-tag">ACID Properties</div>
+                        <div class="tech-tag">Transaction Management</div>
+                    </div>
+                    <div class="project-gallery">
+                        <a href="https://s6.uupload.ir/files/1_44lf.png" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/1_44lf.png" alt="تصویر پروژه بازیابی پایگاه داده">
+                        </a>
+                        <a href="https://s6.uupload.ir/files/2_27in.png" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/2_27in.png" alt="تصویر پروژه بازیابی پایگاه داده">
+                        </a>
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-status">انجام شده</div>
+                    </div>
+                </div>
+                <div class="project-container">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">شبیه‌ساز همروندی در پایگاه‌های داده توزیع‌شده</div>
+                            <div class="project-platform">پروژه درس پایگاه‌های داده توزیع‌شده</div>
+                        </div>
+                        <div class="project-actions">
+                            <button class="docs-btn" onclick="openModal('modal6')">
+                                <span class="material-icons">description</span>
+                                مستندات
+                            </button>
+                            <a href="https://github.com/hmplus28/DDBMS-Concurrency-Simulator" target="_blank" class="github-btn">
+                                <span class="material-icons">code</span>
+                                گیت‌هاب
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-description">
+                        این پروژه یک شبیه‌ساز برای الگوریتم‌های کنترل همروندی در پایگاه‌های داده توزیع‌شده است. در این پروژه، الگوریتم‌های مختلفی مانند قفل‌گذاری دو فازی، زمان‌بندی مهر زمانی و الگوریتم‌های بهینه‌سازی همروندی پیاده‌سازی شده‌اند.
+                    </div>
+                    <div class="tech-tags">
+                        <div class="tech-tag">Python</div>
+                        <div class="tech-tag">Concurrency Control</div>
+                        <div class="tech-tag">Distributed Database</div>
+                        <div class="tech-tag">Two-Phase Locking</div>
+                        <div class="tech-tag">Timestamp Ordering</div>
+                    </div>
+                    <div class="project-gallery">
+                        <a href="https://s6.uupload.ir/files/1_rjv.png" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/1_rjv.png" alt="تصویر پروژه همروندی پایگاه داده">
+                        </a>
+                        <a href="https://s6.uupload.ir/files/2_z5nl.png" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/2_z5nl.png" alt="تصویر پروژه همروندی پایگاه داده">
+                        </a>
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-status">انجام شده</div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-category">
+                <h3 class="category-title">
+                    <span class="material-icons">widgets</span>
+                    سایر موارد
+                </h3>
+                <div class="project-container">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">جداکننده و ترکیب‌کننده فایل‌های HTML/CSS/JS</div>
+                            <div class="project-platform">ابزار شخصی</div>
+                        </div>
+                        <div class="project-actions">
+                            <button class="docs-btn" onclick="openModal('modal7')">
+                                <span class="material-icons">description</span>
+                                مستندات
+                            </button>
+                            <a href="https://github.com/hmplus28/HTML-CSS-JS-Separator-and-Combiner" target="_blank" class="github-btn">
+                                <span class="material-icons">code</span>
+                                گیت‌هاب
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-description">
+                        این ابزار کاربردی برای جدا کردن فایل‌های HTML، CSS و JavaScript از یکدیگر و همچنین ترکیب چندین فایل از هر نوع در یک فایل واحد طراحی شده است. این ابزار برای بهینه‌سازی فرآیند توسعه وب و مدیریت فایل‌های پروژه‌ها بسیار مفید است.
+                    </div>
+                    <div class="tech-tags">
+                        <div class="tech-tag">Python</div>
+                        <div class="tech-tag">File Processing</div>
+                        <div class="tech-tag">Web Development</div>
+                        <div class="tech-tag">Code Optimization</div>
+                    </div>
+                    <div class="project-gallery">
+                        <a href="https://s6.uupload.ir/files/sep_e6at.png" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/sep_e6at.png" alt="تصویر ابزار جداکننده فایل‌ها">
+                        </a>
+
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-status">انجام شده</div>
+                    </div>
+                </div>
+                <div class="project-container">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">مدیریت وای‌فای</div>
+                            <div class="project-platform">ابزار شخصی</div>
+                        </div>
+                        <div class="project-actions">
+                            <button class="docs-btn" onclick="openModal('modal8')">
+                                <span class="material-icons">description</span>
+                                مستندات
+                            </button>
+                            <a href="https://github.com/hmplus28/wifi-manager" target="_blank" class="github-btn">
+                                <span class="material-icons">code</span>
+                                گیت‌هاب
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-description">
+                        این ابزار برای مدیریت شبکه‌های وای‌فای در سیستم‌عامل ویندوز طراحی شده است. با استفاده از این ابزار می‌توان شبکه‌های موجود را اسکن کرده، به آن‌ها متصل شد و اطلاعات شبکه‌های ذخیره شده را مشاهده کرد.در این سیستم مانیتورینگ شبکه وایفای انجام می شود و از قطعی ناگهانی جلوگیری می گردد.
+                    </div>
+                    <div class="tech-tags">
+                        <div class="tech-tag">Python</div>
+                        <div class="tech-tag">Network Management</div>
+                    </div>
+                    <div class="project-gallery">
+                        <a href="https://s6.uupload.ir/files/1753439781490_1rx0.jpg" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/1753439781490_1rx0.jpg" alt="تصویر ابزار مدیریت وای‌فای">
+                        </a>
+
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-status">انجام شده</div>
+                    </div>
+                </div>
+        </div>
+        <div class="card colored-card">
+            <div class="section-title">
+                <span class="material-icons">emoji_events</span>
+                افتخارات و سوابق علمی - پژوهشی
+            </div>
+
+            <div class="achievement-item high-priority">
+                <span class="material-icons">star</span>
+                <span>دبیر دومین مسابقه ICPC دانشگاه صنعتی بیرجند</span>
+            </div>
+
+            <div class="achievement-item high-priority">
+                <span class="material-icons">star</span>
+                <span>مقام اول مسابقات تولید نرم افزار دیجیتال استان خراسانی جنوبی با عنوان زرین کشت</span>
+            </div>
+
+            <div class="achievement-item high-priority">
+                <span class="material-icons">star</span>
+                <span>مقام اول مسابقات بازی‌سازی کنگره 2400 شهید استان خراسان جنوبی</span>
+            </div>
+
+            <div class="achievement-item medium-priority">
+                <span class="material-icons">star</span>
+                <span>معاون اجرایی اولین بوت‌کمپ هوش مصنوعی و تحول کسب و کار استان خراسان جنوبی</span>
+            </div>
+
+            <div class="achievement-item medium-priority">
+                <span class="material-icons">star</span>
+                <span>تسهیلگر بوت‌کمپ هوش مصنوعی در تولید محتوا استان خراسان جنوبی</span>
+            </div>
+
+            <div class="achievement-item medium-priority">
+                <span class="material-icons">star</span>
+                <span>سردبیر نشریه سمیکالن برگزیده جشنواره نشریات استان خراسان جنوبی</span>
+            </div>
+
+            <div class="achievement-item normal-priority">
+                <span class="material-icons">star</span>
+                <span>نائب دبیر انجمن علمی مهندسی کامپیوتر دانشگاه صنعتی بیرجند</span>
+            </div>
+
+            <div class="achievement-item normal-priority">
+                <span class="material-icons">star</span>
+                <span>عضو هیئت تحریریه پادکست تک تاک انجمن علمی مهندسی کامپیوتر دانشگاه صنعتی بیرجند</span>
+            </div>
+
+            <div class="achievement-item normal-priority">
+                <span class="material-icons">star</span>
+                <span>دانشجوی برتر فرهنگی دانشگاه صنعتی بیرجند</span>
+            </div>
+
+            <div class="achievement-item normal-priority">
+                <span class="material-icons">star</span>
+                <span>تدریس یار درس مبانی کامپیوتر و برنامه‌نویسی</span>
+            </div>
+        </div>
+        <div class="grid-container">
+            <div class="card colored-card">
+                <div class="section-title">
+                    <span class="material-icons">track_changes</span>
+                    اهداف من
+                </div>
+                <div class="goal-item">
+                    <span class="material-icons">arrow_left</span>
+                    <span>یادگیری <span class="highlight">Node.js</span></span>
+                </div>
+                <div class="goal-item">
+                    <span class="material-icons">arrow_left</span>
+                    <span>افزایش تجربه به سنیور در <span class="highlight">Django</span></span>
+                </div>
+                <div class="goal-item">
+                    <span class="material-icons">arrow_left</span>
+                    <span>افزایش تجربه توسعه <span class="highlight">Front-End</span></span>
+                </div>
+                <div class="goal-item">
+                    <span class="material-icons">arrow_left</span>
+                    <span>یادگیری تخصص‌های <span class="highlight">Cybersecurity</span></span>
+                </div>
+            </div>
+            <div class="card colored-card">
+                <div class="section-title">
+                    <span class="material-icons">psychology</span>
+                    مهارت‌های نرم
+                </div>
+                <div class="soft-skill-item">
+                    <span class="material-icons">check_circle</span>
+                    <span>تفکر تحلیلی و انتقادی</span>
+                </div>
+                <div class="soft-skill-item">
+                    <span class="material-icons">check_circle</span>
+                    <span>کار تیمی و رهبری تیم</span>
+                </div>
+                <div class="soft-skill-item">
+                    <span class="material-icons">check_circle</span>
+                    <span>تاکید بر زمان‌بندی دقیق</span>
+                </div>
+                <div class="soft-skill-item">
+                    <span class="material-icons">check_circle</span>
+                    <span>برنامه‌ریز</span>
+                </div>
+                <div class="soft-skill-item">
+                    <span class="material-icons">check_circle</span>
+                    <span>مسئله‌محور</span>
+                </div>
+            </div>
+        </div>
+        <div class="card colored-card">
+            <div class="section-title">
+                <span class="material-icons">build</span>
+                مهارت‌های سخت
+            </div>
+            <div class="hard-skill-item">
+                <span class="material-icons">check_circle</span>
+                <span>آشنایی با مفاهیم برنامه‌نویسی</span>
+            </div>
+            <div class="hard-skill-item">
+                <span class="material-icons">check_circle</span>
+                <span>آشنایی با مفاهیم شی‌گرایی و الگوریتم‌ها</span>
+            </div>
+            <div class="hard-skill-item">
+                <span class="material-icons">check_circle</span>
+                <span>آشنایی مقدماتی با طراحی پایگاه داده</span>
+            </div>
+            <div class="hard-skill-item">
+                <span class="material-icons">check_circle</span>
+                <span>تحلیل و مستندسازی</span>
+            </div>
+            <div class="hard-skill-item">
+                <span class="material-icons">check_circle</span>
+                <span>آموزش، تولید محتوا و برگزاری رویداد</span>
+            </div>
+            <div class="hard-skill-item">
+                <span class="material-icons">check_circle</span>
+                <span>آشنایی با متون تخصصی رشته</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- پاپ‌آپ برای نمایش مستندات -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">مستندات سامانه تحلیل فرکانس</h2>
+                <span class="close" onclick="closeModal('modal1')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h3>معرفی کلی</h3>
+                <p>این مستندات به توضیح عملکرد و APIهای سامانه شما می‌پردازد. این سامانه شامل مدیریت حساب کاربری و عملیات تحلیل است و برای استفاده در کاربردهای مختلف طراحی شده است.</p>
+                <h3>بخش‌هایی از API (API Endpoints)</h3>
+                <ul>
+                    <li><strong>POST /api/accounts/</strong>: ایجاد یا ثبت‌نام کاربر جدید.</li>
+                    <li><strong>POST /api/accounts/login/</strong>: ورود کاربران.</li>
+                    <li><strong>POST /api/accounts/logout/</strong>: خروج کاربران.</li>
+                    <li><strong>GET /api/operations/</strong>: دریافت لیست عملیات موجود.</li>
+                    <li><strong>POST /api/operations/</strong>: ایجاد عملیات جدید (مثلاً تحلیل یا محاسبه).</li>
+                    <li><strong>GET /api/operations/{id}/</strong>: دریافت جزئیات عملیات مشخص با شناسه <code>id</code>.</li>
+                </ul>
+                <h3>مسیرهای صفحات وب (Web Pages)</h3>
+                <ul>
+                    <li><strong>GET /accounts/login/</strong>: صفحه ورود کاربران.</li>
+                    <li><strong>GET /accounts/profile/</strong>: صفحه داشبورد پس از ورود کاربران.</li>
+                    <li><strong>GET /operations/new/</strong>: فرم ایجاد عملیات جدید.</li>
+                    <li><strong>GET /operations/history/</strong>: نمایش تاریخچه عملیات کاربر.</li>
+                    <li><strong>GET /operations/detail/{pk}/</strong>: مشاهده جزئیات عملیات مشخص با شناسه <code>pk</code>.</li>
+                    <li><strong>GET /operations/download/{pk}/</strong>: دانلود نتیجه عملیات با شناسه <code>pk</code>.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">مستندات سامانه تیکتینگ و نظرسنجی</h2>
+                <span class="close" onclick="closeModal('modal2')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h3>معرفی کلی</h3>
+                <p>این مستندات، ساختار و APIهای سامانه تیکتینگ و نظرسنجی دانشگاه صنعتی بیرجند را تشریح می‌کند. این سیستم به منظور بهبود فرآیندهای ارتباطی دانشجویان و اساتید با واحدهای مختلف دانشگاه طراحی شده است.</p>
+                <h3>معماری سیستم</h3>
+                <p>سیستم بر پایه Django REST Framework ساخته شده و از Django Channels برای ارتباطات بلادرنگ (Real-time) استفاده می‌کند. پایگاه داده MySQL برای ذخیره‌سازی اطلاعات به کار رفته است.</p>
+                <h3>بخش‌هایی از API</h3>
+                <ul>
+                    <li><strong>POST /api/tickets</strong>: ایجاد یک تیکت جدید.</li>
+                    <li><strong>GET /api/tickets</strong>: دریافت لیست تیکت‌ها (با قابلیت فیلتر).</li>
+                    <li><strong>GET /api/tickets/{id}</strong>: دریافت جزئیات یک تیکت خاص.</li>
+                    <li><strong>PUT /api/tickets/{id}</strong>: به‌روزرسانی یک تیکت.</li>
+                    <li><strong>POST /api/surveys</strong>: ایجاد یک نظرسنجی جدید.</li>
+                    <li><strong>POST /api/surveys/{id}/responses</strong>: ثبت پاسخ به یک نظرسنجی.</li>
+                </ul>
+                <h3>لینک به مستندات پروژه</h3>
+                <p>
+                    <a href="https://uupload.ir/view/مستد_پروژه_77h.pdf/" class="api-link">لینک فایل مستندات در اینجا قرار گرفته است.</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">مستندات شبیه‌ساز ماشین تورینگ</h2>
+                <span class="close" onclick="closeModal('modal3')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h3>معرفی کلی</h3>
+                <p>این پروژه یک شبیه‌ساز کامل برای ماشین تورینگ است که به صورت گام به گام عملیات را نمایش می‌دهد. کاربر می‌تواند ماشین تورینگ خود را تعریف کرده و مراحل اجرای آن را به صورت بصری مشاهده کند.</p>
+                <h3>ویژگی‌های اصلی</h3>
+                <ul>
+                    <li>تعریف ماشین تورینگ با حالات، نمادها و قوانین انتقال</li>
+                    <li>ورودی نوار و تعیین حالت اولیه</li>
+                    <li>اجرای گام به گام با نمایش وضعیت نوار، حالت فعلی و قانون اجرا شده</li>
+                    <li>سرعت قابل تنظیم برای اجرای خودکار</li>
+                    <li>ذخیره و بارگذاری ماشین‌های تعریف شده</li>
+                </ul>
+                <h3>لینک‌های مفید</h3>
+                <p>
+                    برای اطلاعات بیشتر در مورد ماشین تورینگ، به <a href="https://fa.wikipedia.org/wiki/ماشین_تورینگ" class="api-link">ویکی‌پدیا</a> مراجعه کنید.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">مستندات وب‌سایت بازاریابی دیجیتال</h2>
+                <span class="close" onclick="closeModal('modal4')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h3>معرفی کلی</h3>
+                <p>یک صفحه از وب‌سایتی برای ارائه خدمات بازاریابی دیجیتال با طراحی مدرن. این پروژه شامل بخش‌های مختلف برای معرفی خدمات، نمونه کارها، تیم و تماس با ما است.</p>
+                <h3>ویژگی‌های اصلی</h3>
+                <ul>
+                    <li>طراحی کاملاً ریسپانسیو برای تمام دستگاه‌ها</li>
+                    <li>انیمیشن‌های جذاب با استفاده از CSS3 و JavaScript</li>
+                    <li>فرم تماس با قابلیت اعتبارسنجی</li>
+                    <li>گالری تصاویر برای نمونه کارها</li>
+                    <li>بهینه‌سازی برای موتورهای جستجو (SEO)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="modal5" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">مستندات بازیابی پایگاه داده</h2>
+                <span class="close" onclick="closeModal('modal5')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h3>معرفی کلی</h3>
+                <p>این پروژه به بررسی و پیاده‌سازی الگوریتم‌های مختلف بازیابی اطلاعات در پایگاه‌های داده می‌پردازد. در این پروژه، روش‌های مختلف بازیابی پس از خرابی‌های مختلف نرم‌افزاری و سخت‌افزاری پیاده‌سازی شده است.</p>
+                <h3>جزئیات پیاده‌سازی شده</h3>
+                <ul>
+                    <li>بازیابی بر اساس لاگ‌های تراکنش (Undo/Redo)</li>
+                    <li>نقطه بازگشت (Checkpointing)</li>
+                    <li>Dump</li>
+                    <li>چند سناریوی پیش‌فرض</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="modal6" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">مستندات شبیه‌ساز همروندی در پایگاه‌های داده توزیع‌شده</h2>
+                <span class="close" onclick="closeModal('modal6')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h3>معرفی کلی</h3>
+                <p>این پروژه یک شبیه‌ساز برای الگوریتم‌های کنترل همروندی در پایگاه‌های داده توزیع‌شده است. در این پروژه، الگوریتم‌های مختلفی مانند قفل‌گذاری دو فازی، زمان‌بندی مهر زمانی و الگوریتم‌های بهینه‌سازی همروندی پیاده‌سازی شده‌اند.</p>
+                <h3>الگوریتم‌های پیاده‌سازی شده</h3>
+                <ul>
+                    <li>قفل‌گذاری دو فازی (Two-Phase Locking)</li>
+                    <li>زمان‌بندی مهر زمانی (Timestamp Ordering)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="modal7" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">مستندات جداکننده و ترکیب‌کننده فایل‌های HTML/CSS/JS</h2>
+                <span class="close" onclick="closeModal('modal7')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h3>معرفی کلی</h3>
+                <p>این ابزار کاربردی برای جدا کردن فایل‌های HTML، CSS و JavaScript از یکدیگر و همچنین ترکیب چندین فایل از هر نوع در یک فایل واحد طراحی شده است. این ابزار برای بهینه‌سازی فرآیند توسعه وب و مدیریت فایل‌های پروژه‌ها بسیار مفید است.</p>
+                <h3>ویژگی‌های اصلی</h3>
+                <ul>
+                    <li>جدا کردن کدهای HTML، CSS و JavaScript از فایل‌های ترکیبی</li>
+                    <li>ترکیب چندین فایل از یک نوع در یک فایل واحد</li>
+                    <li>حفظ ساختار و نظم کدها در فرآیند جداسازی</li>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+    <div id="modal8" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">مستندات مدیریت وای‌فای</h2>
+                <span class="close" onclick="closeModal('modal8')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h3>معرفی کلی</h3>
+                <p>این ابزار برای مدیریت شبکه‌های وای‌فای در سیستم‌عامل ویندوز طراحی شده است. با استفاده از این ابزار می‌توان شبکه‌های موجود را اسکن کرده، به آن‌ها متصل شد و اطلاعات شبکه‌های ذخیره شده را مشاهده کرد. کاربرد اصلی این اپ جلوگیری از قطعی ناگهانی شبکه وایفای خصوصا در دستگاه های قدیمی است.</p>
+                <h3>ویژگی‌های اصلی</h3>
+                <ul>
+                    <li>مانیتورینگ مداوم شبکه وایفای</li>
+                    <li>مصرف منابع بسیار پایین</li>
+                    <li>اتصال به شبکه‌های وای‌فای</li>
+                    <li>مشاهده شبکه‌های ذخیره شده و حذف آن‌ها</li>
+                    <li>رابط کاربری ساده و کاربرپسند</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="imageModal" class="image-modal" onclick="closeImageModal()">
+        <div class="image-modal-content">
+            <span class="image-modal-close" onclick="closeImageModal()">&times;</span>
+            <img id="modalImage" src="" alt="تصویر بزرگ">
+        </div>
+    </div>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        function openImageModal(event, element) {
+            event.preventDefault();
+            const imageSrc = element.getAttribute('href');
+            const imageAlt = element.querySelector('img').getAttribute('alt');
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+
+            modalImg.src = imageSrc;
+            modalImg.alt = imageAlt;
+            modal.style.display = 'block';
+        }
+
+        function closeImageModal() {
+            document.getElementById('imageModal').style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
