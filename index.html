@@ -504,7 +504,6 @@
             display: flex;
             gap: 10px;
         }
-        /* استایل دکمه "امتحان کنید" */
         .run-btn {
             display: inline-flex;
             align-items: center;
@@ -685,7 +684,6 @@
         .online-resume-link .material-icons {
             font-size: 20px;
         }
-        /* استایل‌های جدید برای پاپ‌آپ تصویر */
         .image-modal {
             display: none;
             position: fixed;
@@ -1002,7 +1000,8 @@
                         <div class="english-skill-tag">GitLab</div>
                         <div class="english-skill-tag">ICDL</div>
                         <div class="english-skill-tag">Visual Paradigm</div>
-                        <div class="english-skill-tag">Ubunto</div>
+                        <div class="english-skill-tag">Postman</div>
+                        <div class="english-skill-tag">Ubuntu</div>
                     </div>
                 </div>
                 <div class="skill-group">
@@ -1040,6 +1039,9 @@
                         <div class="english-skill-tag">openpyxl</div>
                         <div class="english-skill-tag">Pillow</div>
                         <div class="english-skill-tag">Figma</div>
+                        <div class="english-skill-tag">k6</div>
+                        <div class="english-skill-tag">Grafana</div>
+                        <div class="english-skill-tag">SigNoz</div>
                     </div>
                 </div>
                 <div class="skill-group">
@@ -1048,7 +1050,6 @@
                         <div class="skill-level" style="color: var(--learning-color);">Currently Learning:</div>
                     </div>
                     <div class="english-skill-container">
-                        <div class="english-skill-tag">k6</div>
                         <div class="english-skill-tag">React</div>
                     </div>
                 </div>
@@ -1136,7 +1137,7 @@
                     سوابق شغلی
                 </div>
                 <div class="timeline-item">
-                    <div class="job-title">کارشناس تست نرم افزار</div>
+                    <div class="job-title"> کارشناس تست زیرساخت (Back-End)</div>
                     <div class="company">
                             <a href="https://partsoftware.com/" target="_blank">
                                 گروه نرم افزاری پارت
@@ -1177,8 +1178,48 @@
                 <div class="project-container">
                     <div class="project-header">
                         <div>
-                            <div class="project-title">سامانه تیکتینگ و نظرسنجی دانشگاه صنعتی بیرجند</div>
-                            <div class="project-platform">وب (پروژه کارشناسی)</div>
+                            <div class="project-title">سامانه نظارت و پایش</div>
+                            <div class="project-platform">فریلنسری</div>
+                        </div>
+                        <div class="project-actions">
+                            <button class="docs-btn" onclick="openModal('modal9')">
+                                <span class="material-icons">description</span>
+                                مستندات
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-description">
+                        این سامانه برای پایش دستگاه‌هایی که به APIهای مشخصی متصل هستند، طراحی شده است. قابلیت‌های اصلی آن شامل نظارت بر شارژ دستگاه‌ها، میزان مبلغ، اطلاعات صاحب دستگاه و وضعیت عملکردی دستگاه می‌باشد. این سیستم به مدیران امکان می‌دهد تا به صورت متمرکز تمام دستگاه‌های متصل را مدیریت و پایش کنند.
+                    </div>
+                    <div class="tech-tags">
+                        <div class="tech-tag">Django</div>
+                        <div class="tech-tag">SQLite</div>
+                        <div class="tech-tag">HTML</div>
+                        <div class="tech-tag">CSS</div>
+                        <div class="tech-tag">Bootstrap</div>
+                        <div class="tech-tag">JavaScript</div>
+                        <div class="tech-tag">REST API</div>
+                    </div>
+                    <div class="project-gallery">
+                        <a href="https://s6.uupload.ir/files/screenshot_from_2025-11-05_23-27-23_bg8k.png" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/screenshot_from_2025-11-05_23-27-23_bg8k.png" alt="تصویر سامانه نظارت و پایش 1">
+                        </a>
+                        <a href="https://s6.uupload.ir/files/screenshot_from_2025-11-05_23-28-56_4tdg.png" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/screenshot_from_2025-11-05_23-28-56_4tdg.png" alt="تصویر سامانه نظارت و پایش 2">
+                        </a>
+                        <a href="https://s6.uupload.ir/files/screenshot_from_2025-11-05_23-29-54_iurg.png" onclick="openImageModal(event, this)" class="gallery-item">
+                            <img src="https://s6.uupload.ir/files/screenshot_from_2025-11-05_23-29-54_iurg.png" alt="تصویر سامانه نظارت و پایش 3">
+                        </a>
+                    </div>
+                    <div class="project-footer">
+                        <div class="project-status">در حال توسعه</div>
+                    </div>
+                </div>
+                <div class="project-container">
+                    <div class="project-header">
+                        <div>
+                            <div class="project-title">سامانه تیکتینگ و نظرسنجی </div>
+                            <div class="project-platform">دانشگاه صنعتی بیرجند (پروژه کارشناسی)</div>
                         </div>
                         <div class="project-actions">
                             <button class="docs-btn" onclick="openModal('modal2')">
@@ -1670,7 +1711,6 @@
         </div>
     </div>
 
-    <!-- پاپ‌آپ برای نمایش مستندات -->
     <div id="modal1" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -1847,6 +1887,52 @@
             </div>
         </div>
     </div>
+    
+    <div id="modal9" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">مستندات سامانه نظارت و پایش</h2>
+                <span class="close" onclick="closeModal('modal9')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h3>معرفی کلی</h3>
+                <p>سامانه نظارت و پایش یک سیستم جامع برای مدیریت و پایش دستگاه‌های متصل به APIهای مشخص است. این سیستم امکان مشاهده وضعیت شارژ، میزان مبلغ، اطلاعات صاحب دستگاه و وضعیت عملکردی دستگاه‌ها را فراهم می‌کند.</p>
+                <h3>ویژگی‌های اصلی</h3>
+                <ul>
+                    <li>پایش لحظه‌ای وضعیت دستگاه‌ها</li>
+                    <li>مدیریت متمرکز تمام دستگاه‌های متصل</li>
+                    <li>نمایش اطلاعات دقیق شارژ و میزان مبلغ</li>
+                    <li>دسترسی به اطلاعات صاحب دستگاه</li>
+                    <li>قابلیت جستجوی پیشرفته دستگاه‌ها</li>
+                    <li>سیستم اعلان‌ها و نوتیفیکیشن‌ها</li>
+                    <li>امکان افزودن و حذف دستگاه‌ها</li>
+                    <li>قابلیت تغییر وضعیت دستگاه‌ها</li>
+                    <li>دسترسی به تصاویر و پرداخت‌های هر دستگاه</li>
+                </ul>
+                
+                <h3>توضیحات نقاط انتهایی API</h3>
+                <ul>
+                    <li><strong>admin-dashboard/</strong>: نمایش داشبورد مدیریتی برای ادمین‌ها</li>
+                    <li><strong>search-devices/</strong>: جستجوی دستگاه‌ها بر اساس معیارهای مختلف</li>
+                    <li><strong>get-notifications/</strong>: دریافت اعلان‌ها و نوتیفیکیشن‌های سیستم</li>
+                    <li><strong>add-device/</strong>: افزودن دستگاه جدید به سیستم</li>
+                    <li><strong>delete-device/</strong>: حذف دستگاه از سیستم</li>
+                    <li><strong>toggle-device-status/</strong>: تغییر وضعیت فعال/غیرفعال دستگاه</li>
+                    <li><strong>get-device-details/&lt;device_id&gt;/</strong>: دریافت جزئیات کامل یک دستگاه</li>
+                    <li><strong>get-device-images/&lt;device_id&gt;/</strong>: دریافت تصاویر مرتبط با یک دستگاه</li>
+                    <li><strong>get-device-payments/&lt;device_id&gt;/</strong>: دریافت اطلاعات پرداخت‌های یک دستگاه</li>
+                    <li><strong>device-profile/&lt;device_id&gt;/</strong>: نمایش پروفایل کامل دستگاه</li>
+                </ul>
+                <h3>تکنولوژی‌های استفاده شده</h3>
+                <ul>
+                    <li>Back-End: Django, Django REST Framework</li>
+                    <li>پایگاه داده: SQLite</li>
+                    <li>Front-End: HTML, CSS, Bootstrap, JavaScript</li>
+                    <li>ارتباطات: REST API</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <div id="imageModal" class="image-modal" onclick="closeImageModal()">
         <div class="image-modal-content">
@@ -1858,13 +1944,11 @@
     <script>
         function openModal(modalId) {
             document.getElementById(modalId).style.display = "block";
-            // جلوگیری از اسکرول شدن بک‌گراند وقتی مودال باز است
             document.body.style.overflow = "hidden";
         }
 
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = "none";
-            // بازگرداندن اسکرول به حالت عادی
             document.body.style.overflow = "auto";
         }
 
@@ -1879,10 +1963,8 @@
             modalImg.alt = imageAlt;
             modal.style.display = 'block';
             
-            // جلوگیری از اسکرول شدن بک‌گراند وقتی مودال تصویر باز است
             document.body.style.overflow = "hidden";
             
-            // اضافه کردن رویداد لمس برای موبایل
             modal.addEventListener('touchstart', handleTouchStart, {passive: true});
             modal.addEventListener('touchmove', handleTouchMove, {passive: true});
             
@@ -1897,14 +1979,11 @@
                 touchEndX = event.changedTouches[0].screenX;
             }
             
-            // تشخیص swipe برای بستن مودال
             modal.addEventListener('touchend', function() {
                 if (touchEndX < touchStartX - 50) {
-                    // swipe به چپ
                     closeImageModal();
                 }
                 if (touchEndX > touchStartX + 50) {
-                    // swipe به راست
                     closeImageModal();
                 }
             });
@@ -1912,7 +1991,6 @@
 
         function closeImageModal() {
             document.getElementById('imageModal').style.display = "none";
-            // بازگرداندن اسکرول به حالت عادی
             document.body.style.overflow = "auto";
         }
 
@@ -1923,17 +2001,13 @@
             }
         }
         
-        // اضافه کردن رویداد برای تغییر اندازه پنجره
         window.addEventListener('resize', function() {
-            // اگر مودال تصویر باز است، آن را ببندید
             if (document.getElementById('imageModal').style.display === 'block') {
                 closeImageModal();
             }
         });
         
-        // اضافه کردن رویداد برای چرخش دستگاه
         window.addEventListener('orientationchange', function() {
-            // اگر مودال تصویر باز است، آن را ببندید
             if (document.getElementById('imageModal').style.display === 'block') {
                 closeImageModal();
             }
