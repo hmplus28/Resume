@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hamidreza-mehrabadi.netlify.app/sitemap.xml
