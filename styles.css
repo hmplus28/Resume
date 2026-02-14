@@ -18,7 +18,7 @@
     --arabic-color: #4caf50;
 }
 
-/* --- Global & Reset Styles --- */
+
 * {
     margin: 0;
     padding: 0;
@@ -175,7 +175,7 @@ body {
 }
 .online-resume-link:hover { color: #b71c1c; }
 
-/* --- Skills & Languages --- */
+
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -297,7 +297,7 @@ body {
     margin-top: 2px;
 }
 
-/* --- Projects --- */
+
 .category-title {
     font-size: 16px;
     font-weight: 600;
@@ -349,11 +349,11 @@ body {
 .project-actions { 
     display: flex; 
     gap: 10px; 
-    align-items: center; /* برای هم‌تراز کردن عمودی */
+    align-items: center; 
 }
-/* --- FIX: استایل یکسان برای تمام دکمه‌های اکشن --- */
+
 .run-btn, .docs-btn, .github-btn {
-    display: inline-flex; /* برای هم‌تراز کردن آیکون و متن */
+    display: inline-flex; 
     align-items: center;
     justify-content: center;
     gap: 5px;
@@ -365,9 +365,9 @@ body {
     text-decoration: none;
     transition: all 0.3s ease;
     border: none;
-    line-height: 1; /* حذف فضای اضافی عمودی */
-    height: auto; /* اجازه دادن به ارتفاع طبیعی */
-    white-space: nowrap; /* جلوگیری از شکستن متن */
+    line-height: 1; 
+    height: auto; 
+    white-space: nowrap; 
 }
 .run-btn {
     background-color: #4caf50;
@@ -434,7 +434,7 @@ body {
     margin-top: 5px;
 }
 
-/* --- Achievements & Goals --- */
+
 .achievement-item {
     margin-bottom: 10px;
     display: flex;
@@ -475,7 +475,7 @@ body {
     padding: 0 2px;
 }
 
-/* --- Modals --- */
+
 .modal {
     display: none;
     position: fixed;
@@ -570,7 +570,7 @@ body {
 }
 .api-link:hover { text-decoration: underline; }
 
-/* --- Image Modal --- */
+
 .image-modal {
     display: none;
     position: fixed;
@@ -620,7 +620,7 @@ body {
 }
 .image-modal-close:hover { color: #ccc; }
 
-/* --- Responsive Design --- */
+
 @media (max-width: 768px) {
     .poster-container { width: 100%; padding: 15px; }
     .grid-container { grid-template-columns: 1fr; }
