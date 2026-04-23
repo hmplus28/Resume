@@ -3,8 +3,9 @@
 const CONFIG = {
   showContactInfo: true, 
   contact: {
-    phone: 'در دسترس نیست',
-    email: 'hmplus28@gmail.com'
+    phone: '09301900569',
+    email: 'hmplus28@gmail.com',
+    email2: 'hmplus28@chmail.ir'
   }
 };
 
@@ -12,6 +13,7 @@ const CONFIG = {
 function setupContactInfo() {
     const phoneElement = document.getElementById('dynamic-phone');
     const emailLinkElement = document.getElementById('dynamic-email-link');
+    const emailLinkElement2 = document.getElementById('dynamic-email-link2');
 
     if (CONFIG.showContactInfo) {
         if (phoneElement) {
@@ -20,6 +22,10 @@ function setupContactInfo() {
         if (emailLinkElement) {
             emailLinkElement.textContent = CONFIG.contact.email;
             emailLinkElement.href = `mailto:${CONFIG.contact.email}`;
+        }
+        if (emailLinkElement2) {
+            emailLinkElement2.textContent = CONFIG.contact.email2;
+            emailLinkElement2.href = `mailto:${CONFIG.contact.email2}`;
         }
     } else {
         if (phoneElement) {
@@ -140,3 +146,10 @@ window.addEventListener('orientationchange', () => {
         closeImageModal();
     }
 });
+
+const pdfBtn = document.getElementById('exportPdfBtn');
+if (pdfBtn) {
+    pdfBtn.addEventListener('click', function() {
+        window.print();
+    });
+}
