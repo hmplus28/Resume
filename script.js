@@ -5,7 +5,7 @@ const CONFIG = {
   contact: {
     phone: '09301900569',
     email: 'hmplus28@gmail.com',
-    email2: 'hmplus28@chmail.ir'
+    email2: 'info@HamidrezaMehrabadi.ir'
   }
 };
 
