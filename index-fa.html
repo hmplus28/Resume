@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حمیدرضا مهرآبادی - توسعه‌دهنده بک‌اند و مهندس QA</title>
+    <meta name="description" content="نمونه‌کار حمیدرضا مهرآبادی - توسعه‌دهنده بک‌اند، مهندس QA، متخصص Django، Python و تست نرم‌افزار">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Vazirmatn', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        dark: {
+                            900: '#0a0a0f',
+                            800: '#12121a',
+                            700: '#1a1a24',
+                            600: '#24242f',
+                        },
+                        accent: {
+                            primary: '#3b82f6',
+                            secondary: '#8b5cf6',
+                            tertiary: '#06b6d4',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #0a0a0f;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-border {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        .pulse-glow {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .code-block {
+            background: linear-gradient(135deg, #1a1a24 0%, #12121a 100%);
+            direction: ltr;
+            text-align: left;
+        }
+
+        .glow {
+            box-shadow: 0 0 60px rgba(59, 130, 246, 0.2);
+        }
+
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spin-slow 8s linear infinite;
+        }
+
+        /* Typewriter tokens */
+        #about-typewriter .t-keyword { color: #c084fc; font-weight: 500; }
+        #about-typewriter .t-class { color: #facc15; }
+        #about-typewriter .t-function { color: #60a5fa; }
+        #about-typewriter .t-self { color: #fb923c; }
+        #about-typewriter .t-string { color: #4ade80; }
+        #about-typewriter .t-number { color: #f472b6; }
+        #about-typewriter .t-bool { color: #f472b6; font-weight: 500; }
+        #about-typewriter .t-comment { color: #64748b; font-style: italic; }
+        #about-typewriter .t-bracket { color: #94a3b8; }
+        
+        #about-typewriter .code-line {
+            display: block;
+            min-height: 1.75rem;
+            white-space: pre;
+        }
+
+        .scrollbar-thin::-webkit-scrollbar { width: 6px; height: 6px; }
+        .scrollbar-thin::-webkit-scrollbar-track { background: #12121a; border-radius: 3px; }
+        .scrollbar-thin::-webkit-scrollbar-thumb { background: #24242f; border-radius: 3px; }
+        .scrollbar-thin::-webkit-scrollbar-thumb:hover { background: #3b82f6; }
+
+        .typing-done #about-cursor { display: none; }
+    </style>
+</head>
+<body class="bg-dark-900 text-white antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 nav-blur bg-dark-900/80 border-b border-gray-800/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="#" class="text-xl font-bold gradient-text flex items-center gap-2">
+                    <div class="w-8 h-8 bg-gradient-to-br from-accent-primary to-accent-secondary rounded-lg flex items-center justify-center">
+                        <span class="text-white text-sm font-black">H</span>
+                    </div>
+                    <span>HM.dev</span>
+                </a>
+                
+                <div class="hidden md:flex items-center gap-7">
+                    <a href="#about" class="text-gray-400 hover:text-white transition-colors text-sm font-medium">درباره من</a>
+                    <a href="#projects" class="text-gray-400 hover:text-white transition-colors text-sm font-medium">پروژه‌ها</a>
+                    <a href="#skills" class="text-gray-400 hover:text-white transition-colors text-sm font-medium">مهارت‌ها</a>
+                    <a href="#achievements" class="text-gray-400 hover:text-white transition-colors text-sm font-medium">دستاوردها</a>
+                    <a href="#contact" class="text-gray-400 hover:text-white transition-colors text-sm font-medium">تماس</a>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-accent-primary/10 hover:bg-accent-primary/20 border border-accent-primary/30 text-accent-primary rounded-lg text-sm font-medium transition-colors">
+                        <span class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
+                        استخدام
+                    </a>
+                    <a href="index.html"
+                        class="text-xs text-gray-400 hover:text-white transition-colors border border-gray-700 px-2.5 py-1.5 rounded-lg hover:border-gray-500">EN</a>
+                    <button id="mobile-menu-btn" class="md:hidden text-gray-400 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-800 border-t border-gray-800">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#about" class="block text-gray-400 hover:text-white transition-colors">درباره من</a>
+                <a href="#projects" class="block text-gray-400 hover:text-white transition-colors">پروژه‌ها</a>
+                <a href="#skills" class="block text-gray-400 hover:text-white transition-colors">مهارت‌ها</a>
+                <a href="#achievements" class="block text-gray-400 hover:text-white transition-colors">دستاوردها</a>
+                <a href="#contact" class="block text-gray-400 hover:text-white transition-colors">تماس</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center relative overflow-hidden pt-24 pb-20 bg-dark-900">
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-primary/10 rounded-full blur-3xl pulse-glow"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-secondary/10 rounded-full blur-3xl pulse-glow" style="animation-delay: 1s;"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-tertiary/5 rounded-full blur-3xl pulse-glow" style="animation-delay: 2s;"></div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                
+                <!-- Text Content -->
+                <div class="text-center lg:text-right order-2 lg:order-1">
+                    <div class="inline-flex items-center gap-2 bg-dark-700/80 backdrop-blur-sm border border-gray-700 rounded-full px-4 py-2 mb-6">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                        </span>
+                        <span class="text-sm text-gray-400 font-mono">آماده همکاری</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
+                        <span class="text-white">سلام، من</span><br>
+                        <span class="gradient-text">حمیدرضا</span>
+                        <span class="text-white">مهرآبادی</span>
+                        <span class="text-white">هستم</span>
+                    </h1>
+
+                    <p class="text-xl sm:text-2xl text-gray-400 mb-4 font-light">
+                        توسعه‌دهنده بک‌اند و مهندس QA
+                    </p>
+
+                    <p class="text-gray-500 max-w-xl mb-8 text-base leading-relaxed mx-auto lg:mx-0 lg:mr-0">
+                        متخصص در <span class="text-accent-primary font-medium">Python</span>،
+                        <span class="text-accent-secondary font-medium">Django</span> و
+                        <span class="text-accent-tertiary font-medium">تضمین کیفیت</span>.
+                        ساخت راهکارهای بک‌اند مقیاس‌پذیر با دقت و توجه کامل به جزئیات.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10">
+                        <a href="#contact" class="group relative px-8 py-3 rounded-xl overflow-hidden w-full sm:w-auto text-center">
+                            <div class="absolute inset-0 gradient-border"></div>
+                            <div class="absolute inset-[1px] bg-dark-900 rounded-xl group-hover:bg-dark-800 transition-colors"></div>
+                            <span class="relative z-10 flex items-center justify-center gap-2">
+                                <span>ارتباط با من</span>
+                                <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+                                </svg>
+                            </span>
+                        </a>
+                        <a href="resume.html" target="_blank"
+                            class="px-8 py-3 rounded-xl border border-gray-700 hover:border-gray-500 hover:bg-dark-800 transition-all flex items-center justify-center gap-2 w-full sm:w-auto">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            <span>مشاهده رزومه</span>
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-6 pt-8 border-t border-gray-800">
+                        <div class="text-center lg:text-right">
+                            <div class="text-3xl font-bold gradient-text">28+</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wider mt-1">پروژه</div>
+                        </div>
+                        <div class="text-center lg:text-right">
+                            <div class="text-3xl font-bold gradient-text">2+</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wider mt-1">سال تجربه</div>
+                        </div>
+                        <div class="text-center lg:text-right">
+                            <div class="text-3xl font-bold gradient-text">10+</div>
+                            <div class="text-xs text-gray-500 uppercase tracking-wider mt-1">جایزه و نقش</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Avatar -->
+                <div class="order-1 lg:order-2 flex justify-center lg:justify-start">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-accent-primary via-accent-secondary to-accent-tertiary rounded-full blur-2xl opacity-20 animate-pulse"></div>
+                        <div class="absolute -inset-2 bg-gradient-to-r from-accent-primary via-accent-secondary to-accent-tertiary rounded-full blur opacity-50 animate-spin-slow"></div>
+                        
+                        <div class="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full p-1.5 bg-gradient-to-r from-accent-primary via-accent-secondary to-accent-tertiary">
+                            <div class="w-full h-full rounded-full overflow-hidden bg-dark-800 relative border-4 border-dark-900">
+                                <img src="images/profile.jpg" alt="حمیدرضا مهرآبادی" class="w-full h-full object-cover"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+                                <div class="hidden w-full h-full items-center justify-center bg-gradient-to-br from-accent-primary/20 via-accent-secondary/20 to-accent-tertiary/20">
+                                    <span class="text-7xl font-bold gradient-text">حم‌م</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 flex items-center gap-2 bg-dark-800/95 backdrop-blur-md rounded-full pl-4 pr-2.5 py-2 border border-gray-700 shadow-2xl">
+                            <span class="text-xs text-gray-200 font-semibold">آنلاین</span>
+                            <span class="relative flex h-2.5 w-2.5">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                            </span>
+                        </div>
+
+                        <div class="absolute -top-2 -left-2 sm:top-0 sm:left-0 bg-gradient-to-br from-yellow-400 to-orange-500 text-dark-900 text-xs font-black px-3 py-1.5 rounded-full shadow-xl flex items-center gap-1.5 border-2 border-dark-900">
+                            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                            </svg>
+                            ۲× قهرمان
+                        </div>
+
+                        <div class="absolute -right-4 top-1/4 w-3 h-3 bg-accent-primary rounded-full blur-sm animate-pulse"></div>
+                        <div class="absolute -left-4 top-1/2 w-2 h-2 bg-accent-secondary rounded-full blur-sm animate-pulse" style="animation-delay: 0.5s;"></div>
+                        <div class="absolute right-1/4 -bottom-4 w-2 h-2 bg-accent-tertiary rounded-full blur-sm animate-pulse" style="animation-delay: 1s;"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 float-animation">
+            <a href="#about" class="flex flex-col items-center text-gray-500 hover:text-gray-300 transition-colors">
+                <span class="text-xs mb-2 font-mono">اسکرول</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-dark-900 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-dark-900 via-dark-800/30 to-dark-900 pointer-events-none"></div>
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent-primary/30 to-transparent"></div>
+        
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <span class="text-accent-primary font-mono text-sm tracking-wider">// درباره من</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
+                    با من <span class="gradient-text">آشنا شوید</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    اجازه بدید خودم رو به زبانی که بهتر از همه بلدم معرفی کنم — کد.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-5 gap-8 items-start">
+                <div class="lg:col-span-3">
+                    <div class="code-block rounded-2xl border border-gray-800 glow overflow-hidden shadow-2xl">
+                        <div class="flex items-center justify-between px-5 py-3 border-b border-gray-800 bg-dark-700/50">
+                            <div class="w-12"></div>
+                            <span class="text-xs text-gray-500 font-mono flex items-center gap-1.5">
+                                about_me.py
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                                </svg>
+                            </span>
+                            <div class="flex items-center gap-2">
+                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                        </div>
+
+                        <div class="px-5 py-4 h-[500px] overflow-y-auto scrollbar-thin">
+                            <div class="flex gap-4 min-w-0">
+                                <pre class="font-mono text-sm leading-7 flex-1 min-w-0 m-0"><code id="about-typewriter"></code><span id="about-cursor" class="inline-block w-2 h-5 bg-accent-primary align-middle animate-pulse"></span></pre>
+                                <div class="text-gray-600 text-sm font-mono leading-7 select-none text-left w-6 flex-shrink-0">
+                                    <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div>
+                                    <div>6</div><div>7</div><div>8</div><div>9</div><div>10</div>
+                                    <div>11</div><div>12</div><div>13</div><div>14</div><div>15</div>
+                                    <div>16</div><div>17</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="px-5 py-2 border-t border-gray-800 bg-dark-700/50 flex items-center justify-between text-xs text-gray-500">
+                            <span id="about-status" class="font-mono flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 bg-accent-primary rounded-full animate-pulse"></span>
+                                در حال اجرا...
+                            </span>
+                            <div class="flex items-center gap-3">
+                                <span>UTF-8</span>
+                                <span class="flex items-center gap-1">
+                                    Python 3.11
+                                    <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 space-y-4">
+                    <div class="bg-dark-700/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-800">
+                        <h3 class="text-white font-semibold mb-4 flex items-center gap-2">
+                            <svg class="w-5 h-5 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            اطلاعات سریع
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-white font-medium">مشهد، ایران 🇮🇷</span>
+                                <span class="text-gray-400">موقعیت</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-white font-medium">گروه نرم‌افزاری پارت</span>
+                                <span class="text-gray-400">شرکت</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-white font-medium">کارشناسی مهندسی کامپیوتر</span>
+                                <span class="text-gray-400">مدرک</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-accent-primary font-mono font-semibold">ISTJ</span>
+                                <span class="text-gray-400">تیپ شخصیتی</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-dark-700/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-800">
+                        <h3 class="text-white font-semibold mb-4 flex items-center gap-2">
+                            <svg class="w-5 h-5 text-accent-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                            ویژگی‌های اصلی
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-accent-primary/10 text-accent-primary border border-accent-primary/30 px-3 py-1.5 rounded-full font-medium">🎯 تحلیل‌گر</span>
+                            <span class="text-xs bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/30 px-3 py-1.5 rounded-full font-medium">⚡ عمل‌گرا</span>
+                            <span class="text-xs bg-accent-tertiary/10 text-accent-tertiary border border-accent-tertiary/30 px-3 py-1.5 rounded-full font-medium">📐 ساختاریافته</span>
+                            <span class="text-xs bg-green-500/10 text-green-400 border border-green-500/30 px-3 py-1.5 rounded-full font-medium">✅ کیفیت‌محور</span>
+                            <span class="text-xs bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 px-3 py-1.5 rounded-full font-medium">📅 برنامه‌ریز دقیق</span>
+                            <span class="text-xs bg-purple-500/10 text-purple-400 border border-purple-500/30 px-3 py-1.5 rounded-full font-medium">👥 کار تیمی</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-accent-primary/5 to-accent-secondary/5 rounded-2xl p-6 border border-accent-primary/20">
+                        <h3 class="text-white font-semibold mb-3 flex items-center gap-2">
+                            <svg class="w-5 h-5 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                            آنچه بهترین انجام می‌دهم
+                        </h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            <span class="text-accent-primary font-medium">بک‌اندهای مقیاس‌پذیر</span> با Django می‌سازم و
+                            <span class="text-accent-secondary font-medium">قابلیت اطمینان نرم‌افزار</span> را از طریق استراتژی‌های تست جامع
+                            شامل تست بار با k6 و مانیتورینگ با Grafana تضمین می‌کنم.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-dark-800 via-dark-900 to-dark-800"></div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12">
+                <span class="text-accent-primary font-mono text-sm tracking-wider">// تحصیلات</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
+                    سوابق <span class="gradient-text">تحصیلی</span>
+                </h2>
+            </div>
+            <div class="bg-dark-700 rounded-2xl p-8 border border-gray-800 max-w-2xl mx-auto card-hover">
+                <div class="flex items-center gap-4">
+                    <div class="w-16 h-16 bg-accent-primary/20 rounded-2xl flex items-center justify-center text-2xl flex-shrink-0">🎓</div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-white">کارشناسی مهندسی کامپیوتر</h3>
+                        <p class="text-accent-primary">دانشگاه صنعتی بیرجند</p>
+                        <p class="text-gray-500 text-sm mt-1">۱۴۰۰ – ۱۴۰۴</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900"></div>
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute top-20 left-10 w-96 h-96 bg-accent-primary/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-accent-secondary/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <span class="text-accent-primary font-mono text-sm tracking-wider">// مسیر شغلی</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
+                    سوابق <span class="gradient-text">شغلی</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    مسیر حرفه‌ای من از کارآموزی تا مهندسی بک‌اند در سطح enterprise.
+                </p>
+            </div>
+
+            <div class="relative">
+                <div class="absolute right-8 md:right-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-accent-primary via-accent-secondary to-accent-tertiary md:translate-x-1/2"></div>
+
+                <div class="space-y-12">
+                    <!-- Job 1 -->
+                    <div class="relative flex items-start gap-8 md:gap-0">
+                        <div class="absolute right-8 md:right-1/2 w-4 h-4 translate-x-1/2 z-10">
+                            <div class="absolute inset-0 bg-accent-primary rounded-full animate-ping opacity-30"></div>
+                            <div class="relative w-4 h-4 bg-accent-primary rounded-full ring-4 ring-dark-800 shadow-lg shadow-accent-primary/50"></div>
+                        </div>
+                        <div class="hidden md:block md:w-1/2"></div>
+                        <div class="mr-16 md:mr-0 md:w-1/2 md:pr-12">
+                            <div class="group relative bg-gradient-to-br from-dark-700 to-dark-800 rounded-2xl p-6 border border-gray-800 hover:border-accent-primary/50 transition-all card-hover overflow-hidden">
+                                <div class="absolute -top-20 -left-20 w-40 h-40 bg-accent-primary/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <div class="absolute top-4 left-4">
+                                    <span class="inline-flex items-center gap-1.5 text-[10px] text-green-400 bg-green-500/10 border border-green-500/30 px-2.5 py-1 rounded-full font-bold uppercase tracking-wider">
+                                        <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
+                                        فعلی
+                                    </span>
+                                </div>
+                                <div class="flex items-start gap-4 mb-4">
+                                    <div class="flex-1 pt-1">
+                                        <h3 class="text-xl font-bold text-white mb-1">مهندس تست زیرساخت بک‌اند</h3>
+                                        <p class="text-accent-primary font-semibold">گروه نرم‌افزاری پارت</p>
+                                    </div>
+                                    <div class="w-14 h-14 bg-gradient-to-br from-accent-primary to-accent-secondary rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-accent-primary/20">
+                                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2 mb-4">
+                                    <span class="text-sm text-gray-400 font-mono">۱۴۰۴ – اکنون</span>
+                                    <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                    </svg>
+                                </div>
+                                <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                                    تست عملکرد، تست بار با k6، تست API و تضمین کیفیت زیرساخت برای محصولات نرم‌افزاری enterprise.
+                                </p>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="text-[10px] bg-dark-600 text-gray-300 px-2 py-1 rounded border border-gray-700">k6</span>
+                                    <span class="text-[10px] bg-dark-600 text-gray-300 px-2 py-1 rounded border border-gray-700">Grafana</span>
+                                    <span class="text-[10px] bg-dark-600 text-gray-300 px-2 py-1 rounded border border-gray-700">REST API</span>
+                                    <span class="text-[10px] bg-dark-600 text-gray-300 px-2 py-1 rounded border border-gray-700">Node.js</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Job 2 -->
+                    <div class="relative flex items-start gap-8 md:gap-0">
+                        <div class="absolute right-8 md:right-1/2 w-4 h-4 translate-x-1/2 z-10">
+                            <div class="relative w-4 h-4 bg-accent-secondary rounded-full ring-4 ring-dark-800 shadow-lg shadow-accent-secondary/50"></div>
+                        </div>
+                        <div class="mr-16 md:mr-0 md:w-1/2 md:pl-12">
+                            <div class="group relative bg-gradient-to-br from-dark-700 to-dark-800 rounded-2xl p-6 border border-gray-800 hover:border-accent-secondary/50 transition-all card-hover overflow-hidden">
+                                <div class="absolute -top-20 -left-20 w-40 h-40 bg-accent-secondary/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                <div class="absolute top-4 left-4">
+                                    <span class="inline-flex items-center gap-1.5 text-[10px] text-green-400 bg-green-500/10 border border-green-500/30 px-2.5 py-1 rounded-full font-bold uppercase tracking-wider">
+                                        <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
+                                        فعال
+                                    </span>
+                                </div>
+                                <div class="flex items-start gap-4 mb-4">
+                                    <div class="flex-1 pt-1">
+                                        <h3 class="text-xl font-bold text-white mb-1">توسعه‌دهنده Python و بک‌اند</h3>
+                                        <p class="text-accent-secondary font-semibold">فریلنسر</p>
+                                    </div>
+                                    <div class="w-14 h-14 bg-gradient-to-br from-accent-secondary to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-accent-secondary/20">
+                                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2 mb-4">
+                                    <span class="text-sm text-gray-400 font-mono">۱۴۰۳ – اکنون</span>
+                                    <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                    </svg>
+                                </div>
+                                <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                                    توسعه اپلیکیشن‌های وب سفارشی، RESTful API، سیستم‌های real-time با Django و طراحی دیتابیس برای مشتریان مختلف.
+                                </p>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="text-[10px] bg-dark-600 text-gray-300 px-2 py-1 rounded border border-gray-700">Django</span>
+                                    <span class="text-[10px] bg-dark-600 text-gray-300 px-2 py-1 rounded border border-gray-700">DRF</span>
+                                    <span class="text-[10px] bg-dark-600 text-gray-300 px-2 py-1 rounded border border-gray-700">Channels</span>
+                                    <span class="text-[10px] bg-dark-600 text-gray-300 px-2 py-1 rounded border border-gray-700">PostgreSQL</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hidden md:block md:w-1/2"></div>
+                    </div>
+
+                    <!-- Job 3 -->
+                    <div class="relative flex items-start gap-8 md:gap-0">
+                        <div class="absolute right-8 md:right-1/2 w-4 h-4 translate-x-1/2 z-10">
+                            <div class="relative w-4 h-4 bg-accent-tertiary rounded-full ring-4 ring-dark-800 shadow-lg shadow-accent-tertiary/50"></div>
+                        </div>
+                        <div class="hidden md:block md:w-1/2"></div>
+                        <div class="mr-16 md:mr-0 md:w-1/2 md:pr-12">
+                            <div class="group relative bg-gradient-to-br from-dark-700 to-dark-800 rounded-2xl p-6 border border-gray-800 hover:border-accent-tertiary/50 transition-all card-hover overflow-hidden">
+                                <div class="absolute top-4 left-4">
+                                    <span class="inline-flex items-center gap-1.5 text-[10px] text-blue-400 bg-blue-500/10 border border-blue-500/30 px-2.5 py-1 rounded-full font-bold uppercase tracking-wider">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        تکمیل شده
+                                    </span>
+                                </div>
+                                <div class="flex items-start gap-4 mb-4">
+                                    <div class="flex-1 pt-1">
+                                        <h3 class="text-xl font-bold text-white mb-1">کارآموز ASP.NET</h3>
+                                        <p class="text-accent-tertiary font-semibold">نیروگاه سیکل ترکیبی نیشابور</p>
+                                    </div>
+                                    <div class="w-14 h-14 bg-gradient-to-br from-accent-tertiary to-cyan-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-accent-tertiary/20">
+                                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2 mb-4">
+                                    <span class="text-sm text-gray-400 font-mono">۱۴۰۳</span>
+                                    <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                    </svg>
+                                </div>
+                                <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                                    کارآموزی با تمرکز بر توسعه ASP.NET و سیستم‌های نرم‌افزاری enterprise در محیط صنعتی.
+                                </p>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="text-[10px] bg-dark-600 text-gray-300 px-2 py-1 rounded border border-gray-700">C#</span>
+                                    <span class="text-[10px] bg-dark-600 text-gray-300 px-2 py-1 rounded border border-gray-700">ASP.NET</span>
+                                    <span class="text-[10px] bg-dark-600 text-gray-300 px-2 py-1 rounded border border-gray-700">SQL Server</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Job 4 -->
+                    <div class="relative flex items-start gap-8 md:gap-0">
+                        <div class="absolute right-8 md:right-1/2 w-4 h-4 translate-x-1/2 z-10">
+                            <div class="relative w-4 h-4 bg-yellow-500 rounded-full ring-4 ring-dark-800 shadow-lg shadow-yellow-500/50"></div>
+                        </div>
+                        <div class="mr-16 md:mr-0 md:w-1/2 md:pl-12">
+                            <div class="group relative bg-gradient-to-br from-dark-700 to-dark-800 rounded-2xl p-6 border border-gray-800 hover:border-yellow-500/50 transition-all card-hover overflow-hidden">
+                                <div class="absolute top-4 left-4">
+                                    <span class="inline-flex items-center gap-1.5 text-[10px] text-blue-400 bg-blue-500/10 border border-blue-500/30 px-2.5 py-1 rounded-full font-bold uppercase tracking-wider">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                        تکمیل شده
+                                    </span>
+                                </div>
+                                <div class="flex items-start gap-4 mb-4">
+                                    <div class="flex-1 pt-1">
+                                        <h3 class="text-xl font-bold text-white mb-1">کارآموز واحد آموزش</h3>
+                                        <p class="text-yellow-500 font-semibold">مجتمع فولاد خراسان</p>
+                                    </div>
+                                    <div class="w-14 h-14 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-yellow-500/20">
+                                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-2 mb-4">
+                                    <span class="text-sm text-gray-400 font-mono">۱۴۰۴</span>
+                                    <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                    </svg>
+                                </div>
+                                <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                                    کارآموزی در واحد آموزش با مشارکت در IT صنعتی و سیستم‌های آموزشی.
+                                </p>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="text-[10px] bg-dark-600 text-gray-300 px-2 py-1 rounded border border-gray-700">IT صنعتی</span>
+                                    <span class="text-[10px] bg-dark-600 text-gray-300 px-2 py-1 rounded border border-gray-700">آموزش</span>
+                                    <span class="text-[10px] bg-dark-600 text-gray-300 px-2 py-1 rounded border border-gray-700">LMS</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hidden md:block md:w-1/2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Slider -->
+    <section id="projects" class="py-24 bg-dark-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-accent-primary font-mono text-sm tracking-wider">// کارهای من</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
+                    پروژه‌های <span class="gradient-text">برجسته</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    مجموعه‌ای از پروژه‌ها که تخصص من را در توسعه بک‌اند، سیستم‌های real-time و تضمین کیفیت نشان می‌دهد.
+                </p>
+            </div>
+
+            <!-- Slider -->
+            <div class="relative max-w-5xl mx-auto" id="project-slider">
+                <div class="overflow-hidden rounded-2xl shadow-2xl border border-gray-800">
+                    <div class="flex transition-transform duration-700 ease-in-out" id="slider-track">
+                        
+                        <div class="min-w-full flex flex-col md:flex-row bg-dark-700">
+                            <div class="w-full md:w-1/2 h-64 md:h-[400px] bg-gradient-to-br from-blue-600/20 to-purple-600/20 relative overflow-hidden">
+                                <img src="images/projects/k6-dashboard.jpg" alt="داشبورد k6" class="w-full h-full object-cover absolute inset-0" onerror="this.style.display='none'">
+                                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                    <svg class="w-20 h-20 text-blue-500/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span class="text-xs text-accent-primary font-medium bg-accent-primary/10 px-2 py-1 rounded">سازمانی</span>
+                                    <span class="text-xs text-green-500">در تولید</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-3">داشبورد زنده k6</h3>
+                                <p class="text-gray-400 mb-6 leading-relaxed">بصری‌سازی زنده تست‌های عملکرد با نمودارهای زنده، گزارش‌های CSV و مقایسه تست.</p>
+                                <div class="flex flex-wrap gap-2 mb-8">
+                                    <span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Node.js</span>
+                                    <span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">k6</span>
+                                    <span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">WebSocket</span>
+                                </div>
+                                <a href="projects/k6-dashboard.html" class="inline-flex items-center text-accent-primary hover:text-accent-secondary transition-colors font-medium">
+                                    مشاهده جزئیات 
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="min-w-full flex flex-col md:flex-row bg-dark-700">
+                            <div class="w-full md:w-1/2 h-64 md:h-[400px] bg-gradient-to-br from-yellow-600/20 to-orange-600/20 relative overflow-hidden">
+                                <img src="images/projects/zarin-kesht.jpg" alt="زرین کشت" class="w-full h-full object-cover absolute inset-0" onerror="this.style.display='none'">
+                                <div class="absolute top-4 left-4 bg-yellow-500 text-dark-900 text-xs font-bold px-2 py-1 rounded z-10">رتبه اول</div>
+                                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                    <svg class="w-20 h-20 text-yellow-500/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span class="text-xs text-yellow-500 font-medium bg-yellow-500/10 px-2 py-1 rounded">برنده جایزه</span>
+                                    <span class="text-xs text-blue-500">MVP</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-3">زرین کشت</h3>
+                                <p class="text-gray-400 mb-6 leading-relaxed">سیستم مدیریت مزرعه با چت هوش مصنوعی، تقویم محصول و پشتیبانی PWA آفلاین.</p>
+                                <div class="flex flex-wrap gap-2 mb-8">
+                                    <span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Django</span>
+                                    <span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">PWA</span>
+                                    <span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">AI</span>
+                                </div>
+                                <a href="projects/zarin-kesht.html" class="inline-flex items-center text-accent-primary hover:text-accent-secondary transition-colors font-medium">
+                                    مشاهده جزئیات 
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="min-w-full flex flex-col md:flex-row bg-dark-700">
+                            <div class="w-full md:w-1/2 h-64 md:h-[400px] bg-gradient-to-br from-green-600/20 to-cyan-600/20 relative overflow-hidden">
+                                <img src="images/projects/gps-tracking.jpg" alt="GPS Tracking" class="w-full h-full object-cover absolute inset-0" onerror="this.style.display='none'">
+                                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                    <svg class="w-20 h-20 text-green-500/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span class="text-xs text-green-500 font-medium bg-green-500/10 px-2 py-1 rounded">فریلنسری</span>
+                                    <span class="text-xs text-green-500">در تولید</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-3">ردیابی هوشمند GPS</h3>
+                                <p class="text-gray-400 mb-6 leading-relaxed">پلتفرم ردیابی real-time با پروتکل MQTT، نقشه زنده و تاریخچه مسیر.</p>
+                                <div class="flex flex-wrap gap-2 mb-8">
+                                    <span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Django</span>
+                                    <span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Channels</span>
+                                    <span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">MQTT</span>
+                                </div>
+                                <a href="projects/gps-tracking.html" class="inline-flex items-center text-accent-primary hover:text-accent-secondary transition-colors font-medium">
+                                    مشاهده جزئیات 
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="prev-slide" class="absolute top-1/2 right-4 -translate-y-1/2 bg-dark-800/80 hover:bg-dark-700 text-white p-3 rounded-full transition-colors z-10 border border-gray-700 shadow-lg">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                </button>
+                <button id="next-slide" class="absolute top-1/2 left-4 -translate-y-1/2 bg-dark-800/80 hover:bg-dark-700 text-white p-3 rounded-full transition-colors z-10 border border-gray-700 shadow-lg">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+                </button>
+
+                <div class="flex justify-center gap-2 mt-8" id="slider-dots">
+                    <button class="slider-dot w-3 h-3 rounded-full bg-accent-primary transition-all" data-index="0"></button>
+                    <button class="slider-dot w-3 h-3 rounded-full bg-gray-600 hover:bg-gray-500 transition-all" data-index="1"></button>
+                    <button class="slider-dot w-3 h-3 rounded-full bg-gray-600 hover:bg-gray-500 transition-all" data-index="2"></button>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="all-projects.html" class="inline-flex items-center px-6 py-3 rounded-xl border border-gray-700 hover:border-gray-500 transition-colors text-white hover:text-accent-primary">
+                    مشاهده همه پروژه‌ها
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="py-24 bg-dark-800 relative overflow-hidden">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-accent-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-accent-secondary/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center mb-16">
+                <span class="text-accent-primary font-mono text-sm tracking-wider">// تخصص‌ها</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
+                    مهارت‌های <span class="gradient-text">فنی</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    مجموعه‌ای جامع از ابزارها که طی سال‌ها توسعه بک‌اند، سیستم‌های real-time و تضمین کیفیت ساخته شده.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-5 mb-8">
+                <div class="group relative bg-gradient-to-br from-dark-700 to-dark-800 rounded-2xl p-6 border border-gray-800 hover:border-blue-500/50 transition-all duration-300 card-hover overflow-hidden">
+                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all"></div>
+                    <div class="relative">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center">
+                                <span class="text-blue-500 font-bold">Py</span>
+                            </div>
+                            <span class="text-[10px] text-blue-500 bg-blue-500/10 px-2 py-1 rounded-full font-medium">اصلی</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">اکوسیستم Python</h3>
+                        <p class="text-gray-400 text-sm mb-4">بک‌اند، اتوماسیون، تحلیل داده و فریم‌ورک‌های تست.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="text-xs bg-dark-600/80 text-gray-300 px-2 py-1 rounded">Django</span>
+                            <span class="text-xs bg-dark-600/80 text-gray-300 px-2 py-1 rounded">DRF</span>
+                            <span class="text-xs bg-dark-600/80 text-gray-300 px-2 py-1 rounded">Pandas</span>
+                            <span class="text-xs bg-dark-600/80 text-gray-300 px-2 py-1 rounded">Celery</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative bg-gradient-to-br from-dark-700 to-dark-800 rounded-2xl p-6 border border-gray-800 hover:border-green-500/50 transition-all duration-300 card-hover overflow-hidden">
+                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-green-500/10 rounded-full blur-2xl group-hover:bg-green-500/20 transition-all"></div>
+                    <div class="relative">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center">
+                                <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <span class="text-[10px] text-green-500 bg-green-500/10 px-2 py-1 rounded-full font-medium">متخصص</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">تست و تضمین کیفیت</h3>
+                        <p class="text-gray-400 text-sm mb-4">تست بار، مانیتورینگ عملکرد و اعتبارسنجی API.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="text-xs bg-dark-600/80 text-gray-300 px-2 py-1 rounded">k6</span>
+                            <span class="text-xs bg-dark-600/80 text-gray-300 px-2 py-1 rounded">Grafana</span>
+                            <span class="text-xs bg-dark-600/80 text-gray-300 px-2 py-1 rounded">Postman</span>
+                            <span class="text-xs bg-dark-600/80 text-gray-300 px-2 py-1 rounded">Signoz</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative bg-gradient-to-br from-dark-700 to-dark-800 rounded-2xl p-6 border border-gray-800 hover:border-purple-500/50 transition-all duration-300 card-hover overflow-hidden">
+                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-all"></div>
+                    <div class="relative">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center">
+                                <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                            <span class="text-[10px] text-purple-500 bg-purple-500/10 px-2 py-1 rounded-full font-medium">پیشرفته</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">سیستم‌های Real-time</h3>
+                        <p class="text-gray-400 text-sm mb-4">WebSockets، MQTT و معماری‌های event-driven.</p>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="text-xs bg-dark-600/80 text-gray-300 px-2 py-1 rounded">Channels</span>
+                            <span class="text-xs bg-dark-600/80 text-gray-300 px-2 py-1 rounded">MQTT</span>
+                            <span class="text-xs bg-dark-600/80 text-gray-300 px-2 py-1 rounded">Redis</span>
+                            <span class="text-xs bg-dark-600/80 text-gray-300 px-2 py-1 rounded">Daphne</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-dark-700/50 to-dark-800/50 rounded-2xl border border-gray-800 p-6 md:p-8 backdrop-blur-sm">
+                <div class="flex items-center justify-between mb-6 flex-wrap gap-3">
+                    <div>
+                        <h3 class="text-lg font-semibold text-white flex items-center gap-2">
+                            <svg class="w-5 h-5 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+                            </svg>
+                            استک فنی بر اساس حوزه
+                        </h3>
+                    </div>
+                    <span class="text-xs text-gray-500 font-mono bg-dark-600/50 px-3 py-1 rounded-full border border-gray-700">30+ تکنولوژی</span>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <h4 class="text-sm font-semibold text-blue-400 flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
+                            بک‌اند و زبان‌ها
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="inline-flex items-center gap-1.5 bg-dark-600/80 hover:bg-blue-500/20 border border-gray-700 text-gray-300 text-xs px-2.5 py-1.5 rounded-lg transition-all">
+                                <span class="w-4 h-4 rounded bg-blue-500/20 text-blue-500 flex items-center justify-center text-[9px] font-bold">Py</span>Python
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 bg-dark-600/80 border border-gray-700 text-gray-300 text-xs px-2.5 py-1.5 rounded-lg">
+                                <span class="w-4 h-4 rounded bg-green-500/20 text-green-500 flex items-center justify-center text-[9px] font-bold">Dj</span>Django
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 bg-dark-600/80 border border-gray-700 text-gray-300 text-xs px-2.5 py-1.5 rounded-lg">
+                                <span class="w-4 h-4 rounded bg-blue-500/20 text-blue-500 flex items-center justify-center text-[9px] font-bold">My</span>MySQL
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 bg-dark-600/80 border border-gray-700 text-gray-300 text-xs px-2.5 py-1.5 rounded-lg">
+                                <span class="w-4 h-4 rounded bg-red-500/20 text-red-500 flex items-center justify-center text-[9px] font-bold">Rd</span>Redis
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <h4 class="text-sm font-semibold text-green-400 flex items-center gap-2">
+                            <span class="w-1.5 h-1.5 bg-green-400 rounded-full"></span>
+                            تست و مانیتورینگ
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="inline-flex items-center gap-1.5 bg-dark-600/80 border border-gray-700 text-gray-300 text-xs px-2.5 py-1.5 rounded-lg">
+                                <span class="w-4 h-4 rounded bg-green-500/20 text-green-500 flex items-center justify-center text-[9px] font-bold">k6</span>k6
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 bg-dark-600/80 border border-gray-700 text-gray-300 text-xs px-2.5 py-1.5 rounded-lg">
+                                <span class="w-4 h-4 rounded bg-orange-500/20 text-orange-500 flex items-center justify-center text-[9px] font-bold">Gr</span>Grafana
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 bg-dark-600/80 border border-gray-700 text-gray-300 text-xs px-2.5 py-1.5 rounded-lg">
+                                <span class="w-4 h-4 rounded bg-pink-500/20 text-pink-500 flex items-center justify-center text-[9px] font-bold">Pt</span>Postman
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages -->
+    <section id="languages" class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900"></div>
+        <div class="absolute inset-0 opacity-30">
+            <div class="absolute top-20 left-10 w-96 h-96 bg-accent-primary/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-accent-secondary/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <span class="text-accent-primary font-mono text-sm tracking-wider">// زبان‌ها</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
+                    تسلط <span class="gradient-text">زبانی</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <div class="group relative bg-gradient-to-br from-dark-700 to-dark-800 rounded-2xl p-6 border border-gray-800 hover:border-accent-primary/50 transition-all card-hover overflow-hidden">
+                    <div class="relative flex items-start gap-5">
+                        <div class="relative flex-shrink-0">
+                            <div class="w-24 h-24 relative">
+                                <svg class="w-24 h-24 -rotate-90" viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="42" stroke="#24242f" stroke-width="8" fill="none"/>
+                                    <circle cx="50" cy="50" r="42" stroke="url(#grad-en)" stroke-width="8" fill="none" stroke-dasharray="264" stroke-dashoffset="92" stroke-linecap="round"/>
+                                    <defs>
+                                        <linearGradient id="grad-en" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#3b82f6"/>
+                                            <stop offset="100%" stop-color="#8b5cf6"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span class="text-3xl">🇬🇧</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-1 pt-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <h3 class="text-xl font-bold text-white">انگلیسی</h3>
+                                <span class="text-[10px] text-accent-primary bg-accent-primary/10 border border-accent-primary/30 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">B2</span>
+                            </div>
+                            <p class="text-sm text-gray-400 mb-4">متوسط رو به بالا</p>
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-accent-primary font-semibold">75%</span>
+                                    <span class="text-gray-400">خواندن</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-accent-primary font-semibold">60%</span>
+                                    <span class="text-gray-400">نوشتن</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-accent-primary font-semibold">50%</span>
+                                    <span class="text-gray-400">گفتاری</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group relative bg-gradient-to-br from-dark-700 to-dark-800 rounded-2xl p-6 border border-gray-800 hover:border-accent-secondary/50 transition-all card-hover overflow-hidden">
+                    <div class="relative flex items-start gap-5">
+                        <div class="relative flex-shrink-0">
+                            <div class="w-24 h-24 relative">
+                                <svg class="w-24 h-24 -rotate-90" viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="42" stroke="#24242f" stroke-width="8" fill="none"/>
+                                    <circle cx="50" cy="50" r="42" stroke="url(#grad-ar)" stroke-width="8" fill="none" stroke-dasharray="264" stroke-dashoffset="40" stroke-linecap="round"/>
+                                    <defs>
+                                        <linearGradient id="grad-ar" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#8b5cf6"/>
+                                            <stop offset="100%" stop-color="#06b6d4"/>
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <span class="text-3xl">🇮🇶</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex-1 pt-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <h3 class="text-xl font-bold text-white">عربی</h3>
+                                <span class="text-[10px] text-accent-secondary bg-accent-secondary/10 border border-accent-secondary/30 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">C1</span>
+                            </div>
+                            <p class="text-sm text-gray-400 mb-4">پیشرفته</p>
+                            <div class="space-y-2">
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-accent-secondary font-semibold">90%</span>
+                                    <span class="text-gray-400">خواندن</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-accent-secondary font-semibold">80%</span>
+                                    <span class="text-gray-400">نوشتن</span>
+                                </div>
+                                <div class="flex items-center justify-between text-xs">
+                                    <span class="text-accent-secondary font-semibold">50%</span>
+                                    <span class="text-gray-400">گفتاری</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 max-w-2xl mx-auto text-center">
+                <div class="inline-flex items-center gap-3 bg-dark-700/50 backdrop-blur-sm border border-gray-800 rounded-full px-5 py-2.5">
+                    <span class="text-2xl">🇮🇷</span>
+                    <div class="text-right">
+                        <div class="text-sm text-white font-semibold">فارسی</div>
+                        <div class="text-xs text-gray-400">زبان مادری • C2</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements -->
+    <section id="achievements" class="py-24 bg-dark-900 relative overflow-hidden">
+        <div class="absolute top-20 left-0 w-[500px] h-[500px] bg-yellow-500/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-20 right-0 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center mb-16">
+                <span class="text-accent-primary font-mono text-sm tracking-wider">// افتخارات</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
+                    دستاوردها و <span class="gradient-text">فعالیت‌ها</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+                <div class="group relative bg-gradient-to-br from-dark-700 to-dark-800 rounded-2xl p-6 border border-gray-800 hover:border-yellow-500/50 transition-all overflow-hidden">
+                    <div class="relative">
+                        <div class="text-4xl md:text-5xl font-bold gradient-text mb-1">۲×</div>
+                        <div class="text-gray-400 text-sm">رتبه اول</div>
+                    </div>
+                </div>
+                <div class="group relative bg-gradient-to-br from-dark-700 to-dark-800 rounded-2xl p-6 border border-gray-800 hover:border-accent-primary/50 transition-all overflow-hidden">
+                    <div class="relative">
+                        <div class="text-4xl md:text-5xl font-bold gradient-text mb-1">+۱۱</div>
+                        <div class="text-gray-400 text-sm">دستاورد</div>
+                    </div>
+                </div>
+                <div class="group relative bg-gradient-to-br from-dark-700 to-dark-800 rounded-2xl p-6 border border-gray-800 hover:border-purple-500/50 transition-all overflow-hidden">
+                    <div class="relative">
+                        <div class="text-4xl md:text-5xl font-bold gradient-text mb-1">+۵</div>
+                        <div class="text-gray-400 text-sm">نقش رهبری</div>
+                    </div>
+                </div>
+                <div class="group relative bg-gradient-to-br from-dark-700 to-dark-800 rounded-2xl p-6 border border-gray-800 hover:border-cyan-500/50 transition-all overflow-hidden">
+                    <div class="relative">
+                        <div class="text-4xl md:text-5xl font-bold gradient-text mb-1">+۳</div>
+                        <div class="text-gray-400 text-sm">سال فعالیت</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spotlight Awards -->
+            <div class="grid md:grid-cols-2 gap-6 mb-12">
+                <div class="group relative rounded-2xl overflow-hidden border-2 border-yellow-500/30 hover:border-yellow-500/60 transition-all">
+                    <div class="absolute inset-0 bg-gradient-to-br from-yellow-600/20 via-orange-600/10 to-transparent"></div>
+                    <div class="relative p-8">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="relative">
+                                <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg shadow-yellow-500/20">
+                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                                    </svg>
+                                </div>
+                                <div class="absolute -top-1 -right-1 w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-lg">
+                                    <span class="text-yellow-600 font-black text-xs">۱</span>
+                                </div>
+                            </div>
+                            <div class="text-left">
+                                <div class="inline-flex items-center gap-1 bg-yellow-500/20 text-yellow-400 text-[10px] font-bold px-2 py-1 rounded-full">قهرمان</div>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">رتبه اول — نرم‌افزار دیجیتال</h3>
+                        <p class="text-gray-300 text-sm mb-4">مسابقه استانی خراسان جنوبی — پروژه <span class="text-yellow-400 font-medium">زرین کشت</span></p>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-2xl overflow-hidden border-2 border-orange-500/30 hover:border-orange-500/60 transition-all">
+                    <div class="absolute inset-0 bg-gradient-to-br from-orange-600/20 via-red-600/10 to-transparent"></div>
+                    <div class="relative p-8">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="relative">
+                                <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center shadow-lg shadow-orange-500/20">
+                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                </div>
+                                <div class="absolute -top-1 -right-1 w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-lg">
+                                    <span class="text-orange-600 font-black text-xs">۱</span>
+                                </div>
+                            </div>
+                            <div class="text-left">
+                                <div class="inline-flex items-center gap-1 bg-orange-500/20 text-orange-400 text-[10px] font-bold px-2 py-1 rounded-full">قهرمان</div>
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">رتبه اول — توسعه بازی</h3>
+                        <p class="text-gray-300 text-sm mb-4">مسابقه توسعه بازی کنگره ۲۴۰۰ شهید</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Achievements Grid -->
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="bg-dark-700 rounded-2xl p-5 border border-gray-800 card-hover">
+                    <h4 class="text-white font-semibold mb-1">داور و منتور CTF</h4>
+                    <p class="text-gray-400 text-xs">اولین رویداد CTF در استان خراسان جنوبی</p>
+                </div>
+                <div class="bg-dark-700 rounded-2xl p-5 border border-gray-800 card-hover">
+                    <h4 class="text-white font-semibold mb-1">دبیر ICPC</h4>
+                    <p class="text-gray-400 text-xs">دومین مسابقه ICPC در دانشگاه بیرجند</p>
+                </div>
+                <div class="bg-dark-700 rounded-2xl p-5 border border-gray-800 card-hover">
+                    <h4 class="text-white font-semibold mb-1">معاون اجرایی بوت‌کمپ AI</h4>
+                    <p class="text-gray-400 text-xs">مرکز نوآوری</p>
+                </div>
+                <div class="bg-dark-700 rounded-2xl p-5 border border-gray-800 card-hover">
+                    <h4 class="text-white font-semibold mb-1">سردبیر سمیکالن</h4>
+                    <p class="text-gray-400 text-xs">برنده جشنواره استانی</p>
+                </div>
+                <div class="bg-dark-700 rounded-2xl p-5 border border-gray-800 card-hover">
+                    <h4 class="text-white font-semibold mb-1">نایب رئیس انجمن علمی کامپیوتر</h4>
+                    <p class="text-gray-400 text-xs">CSSA دانشگاه صنعتی بیرجند</p>
+                </div>
+                <div class="bg-dark-700 rounded-2xl p-5 border border-gray-800 card-hover">
+                    <h4 class="text-white font-semibold mb-1">دانشجوی برتر فرهنگی</h4>
+                    <p class="text-gray-400 text-xs">دانشگاه صنعتی بیرجند</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Goals -->
+    <section id="goals" class="py-24 bg-dark-800 relative overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center mb-16">
+                <span class="text-accent-primary font-mono text-sm tracking-wider">// اهداف</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
+                    اهداف <span class="gradient-text">شغلی</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-5xl mx-auto">
+                <div class="group relative bg-gradient-to-br from-dark-700 to-dark-800 rounded-2xl p-6 border border-gray-800 hover:border-accent-primary/50 transition-all card-hover">
+                    <div class="text-3xl mb-3">🧑‍💻</div>
+                    <h3 class="text-lg font-semibold text-white mb-2">توسعه‌دهنده ارشد Django</h3>
+                    <p class="text-gray-400 text-sm">تعمیق تخصص در سطح ارشد در اکوسیستم Django</p>
+                </div>
+                <div class="group relative bg-gradient-to-br from-dark-700 to-dark-800 rounded-2xl p-6 border border-gray-800 hover:border-purple-500/50 transition-all card-hover">
+                    <div class="text-3xl mb-3">🎨</div>
+                    <h3 class="text-lg font-semibold text-white mb-2">رشد فرانت‌اند</h3>
+                    <p class="text-gray-400 text-sm">تجربه عملی پیشرفته در فریم‌ورک‌های مدرن فرانت</p>
+                </div>
+                <div class="group relative bg-gradient-to-br from-dark-700 to-dark-800 rounded-2xl p-6 border border-gray-800 hover:border-red-500/50 transition-all card-hover">
+                    <div class="text-3xl mb-3">🛡️</div>
+                    <h3 class="text-lg font-semibold text-white mb-2">OWASP Top 10</h3>
+                    <p class="text-gray-400 text-sm">تمرین عملی با خطرات امنیتی وب‌اپلیکیشن</p>
+                </div>
+                <div class="group relative bg-gradient-to-br from-dark-700 to-dark-800 rounded-2xl p-6 border border-gray-800 hover:border-green-500/50 transition-all card-hover">
+                    <div class="text-3xl mb-3">✅</div>
+                    <h3 class="text-lg font-semibold text-white mb-2">تست اتوماتیک</h3>
+                    <p class="text-gray-400 text-sm">گسترش مهارت‌ها در تست خودکار وب‌اپلیکیشن</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-24 bg-dark-800 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-accent-primary/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent-secondary/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center mb-16">
+                <span class="text-accent-primary font-mono text-sm tracking-wider">// تماس</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 mb-4">
+                    بیایید <span class="gradient-text">متصل شویم</span>
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    برای همکاری، فرصت‌های شغلی یا فقط یک گفتگوی دوستانه درباره تکنولوژی، در ارتباط باشید.
+                </p>
+            </div>
+
+            <div class="mb-12 max-w-3xl mx-auto">
+                <div class="group relative bg-gradient-to-r from-green-500/10 via-dark-700/80 to-dark-700/80 rounded-2xl p-6 border border-green-500/30 backdrop-blur-sm overflow-hidden">
+                    <div class="relative flex items-center gap-4 flex-wrap md:flex-nowrap">
+                        <div class="relative">
+                            <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg shadow-green-500/30">
+                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <span class="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-dark-800 animate-pulse"></span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center gap-2 mb-1">
+                                <h3 class="text-lg font-bold text-white">آماده فرصت‌های جدید</h3>
+                                <span class="text-[10px] text-green-500 bg-green-500/10 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">در دسترس</span>
+                            </div>
+                            <p class="text-gray-400 text-sm">در حال پذیرش پروژه‌های فریلنسری، مشاوره QA و نقش‌های توسعه بک‌اند.</p>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs text-gray-400">
+                            <span>زمان پاسخ: <span class="text-green-400 font-medium">&lt; ۲۴ ساعت</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-5 mb-12">
+                <a href="mailto:hmplus28@gmail.com" class="group relative bg-gradient-to-br from-dark-700 to-dark-800 rounded-2xl p-6 border border-gray-800 hover:border-accent-primary/50 transition-all card-hover overflow-hidden">
+                    <div class="relative">
+                        <div class="flex items-start justify-between mb-4">
+                            <div class="w-12 h-12 bg-accent-primary/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="text-white font-semibold mb-1">ایمیل</h3>
+                        <p class="text-gray-400 text-sm mb-3">بهترین برای سوالات دقیق</p>
+                        <div class="text-accent-primary text-sm font-medium truncate">hmplus28@gmail.com</div>
+                    </div>
+                </a>
+
+                <a href="tel:+989301900569" class="group relative bg-gradient-to-br from-dark-700 to-dark-800 rounded-2xl p-6 border border-gray-800 hover:border-accent-secondary/50 transition-all card-hover overflow-hidden">
+                    <div class="relative">
+                        <div class="w-12 h-12 bg-accent-secondary/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6 text-accent-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-white font-semibold mb-1">تلفن</h3>
+                        <p class="text-gray-400 text-sm mb-3">سوالات سریع و تماس</p>
+                        <div class="text-accent-secondary text-sm font-medium" dir="ltr">+98 930 190 0569</div>
+                    </div>
+                </a>
+
+                <div class="group relative bg-gradient-to-br from-dark-700 to-dark-800 rounded-2xl p-6 border border-gray-800 hover:border-accent-tertiary/50 transition-all overflow-hidden">
+                    <div class="relative">
+                        <div class="w-12 h-12 bg-accent-tertiary/20 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6 text-accent-tertiary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-white font-semibold mb-1">موقعیت</h3>
+                        <p class="text-gray-400 text-sm mb-3">در دسترس در سراسر جهان</p>
+                        <div class="text-accent-tertiary text-sm font-medium">مشهد، ایران</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social -->
+            <div class="mb-12">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="h-px flex-1 bg-gradient-to-r from-accent-primary/50 to-transparent"></div>
+                    <span class="text-accent-primary font-mono text-xs tracking-widest uppercase">شبکه‌های اجتماعی</span>
+                    <div class="h-px flex-1 bg-gradient-to-l from-accent-primary/50 to-transparent"></div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                    <a href="https://t.me/hmplus28" target="_blank" class="group relative bg-gradient-to-br from-dark-700 to-dark-800 rounded-2xl p-5 border border-gray-800 hover:border-sky-500/50 transition-all card-hover">
+                        <div class="relative">
+                            <div class="w-11 h-11 bg-sky-500/20 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6 text-sky-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                                </svg>
+                            </div>
+                            <h4 class="text-white font-semibold text-sm mb-1">تلگرام</h4>
+                            <p class="text-gray-400 text-xs truncate" dir="ltr">@hmplus28</p>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/hmplus28" target="_blank" class="group relative bg-gradient-to-br from-dark-700 to-dark-800 rounded-2xl p-5 border border-gray-800 hover:border-gray-400/50 transition-all card-hover">
+                        <div class="relative">
+                            <div class="w-11 h-11 bg-gray-500/20 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6 text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </div>
+                            <h4 class="text-white font-semibold text-sm mb-1">گیت‌هاب</h4>
+                            <p class="text-gray-400 text-xs truncate" dir="ltr">@hmplus28</p>
+                        </div>
+                    </a>
+
+                    <a href="https://linkedin.com/in/hamidreza-mehrabadi-6a6439322" target="_blank" class="group relative bg-gradient-to-br from-dark-700 to-dark-800 rounded-2xl p-5 border border-gray-800 hover:border-blue-600/50 transition-all card-hover">
+                        <div class="relative">
+                            <div class="w-11 h-11 bg-blue-600/20 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </div>
+                            <h4 class="text-white font-semibold text-sm mb-1">لینکدین</h4>
+                            <p class="text-gray-400 text-xs truncate">حمیدرضا مهرآبادی</p>
+                        </div>
+                    </a>
+
+                    <a href="https://instagram.com/hamid.reza.mehrabadi" target="_blank" class="group relative bg-gradient-to-br from-dark-700 to-dark-800 rounded-2xl p-5 border border-gray-800 hover:border-pink-500/50 transition-all card-hover">
+                        <div class="relative">
+                            <div class="w-11 h-11 bg-gradient-to-br from-pink-500/20 to-purple-500/20 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6 text-pink-400" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </div>
+                            <h4 class="text-white font-semibold text-sm mb-1">اینستاگرام</h4>
+                            <p class="text-gray-400 text-xs truncate" dir="ltr">@hamid.reza.mehrabadi</p>
+                        </div>
+                    </a>
+
+                    <a href="resume.html" target="_blank" class="group relative bg-gradient-to-br from-accent-primary/10 to-accent-secondary/10 rounded-2xl p-5 border border-accent-primary/30 hover:border-accent-primary/60 transition-all card-hover">
+                        <div class="relative">
+                            <div class="w-11 h-11 bg-gradient-to-br from-accent-primary to-accent-secondary rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                            </div>
+                            <h4 class="text-white font-semibold text-sm mb-1">رزومه</h4>
+                            <p class="text-gray-400 text-xs">نسخه کامل</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 border-t border-gray-800 py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400 text-sm">
+                © ۲۰۲۶ حمیدرضا مهرآبادی. تمامی حقوق محفوظ است.
+                <span class="mx-2">|</span>
+                ساخته شده با <span class="text-red-500">♥</span> و Tailwind CSS
+            </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Project Slider
+        (function() {
+            const track = document.getElementById('slider-track');
+            const dots = document.querySelectorAll('.slider-dot');
+            let currentIndex = 0;
+            const totalSlides = track.children.length;
+            let autoPlayInterval;
+
+            function updateSlider() {
+                track.style.transform = `translateX(${currentIndex * 100}%)`; // RTL: positive translateX
+                dots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.remove('bg-gray-600');
+                        dot.classList.add('bg-accent-primary', 'w-8');
+                    } else {
+                        dot.classList.add('bg-gray-600');
+                        dot.classList.remove('bg-accent-primary', 'w-8');
+                    }
+                });
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateSlider();
+            }
+
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateSlider();
+            }
+
+            function startAutoPlay() {
+                autoPlayInterval = setInterval(nextSlide, 5000);
+            }
+
+            function stopAutoPlay() {
+                clearInterval(autoPlayInterval);
+            }
+
+            document.getElementById('next-slide').addEventListener('click', () => { stopAutoPlay(); nextSlide(); startAutoPlay(); });
+            document.getElementById('prev-slide').addEventListener('click', () => { stopAutoPlay(); prevSlide(); startAutoPlay(); });
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    stopAutoPlay();
+                    currentIndex = parseInt(dot.getAttribute('data-index'));
+                    updateSlider();
+                    startAutoPlay();
+                });
+            });
+
+            const slider = document.getElementById('project-slider');
+            slider.addEventListener('mouseenter', stopAutoPlay);
+            slider.addEventListener('mouseleave', startAutoPlay);
+
+            startAutoPlay();
+        })();
+
+        // About Typewriter
+        (function() {
+            const aboutLines = [
+                [{ type: 'comment', text: '# Who am I? Let me introduce myself.' }],
+                [{ type: 'keyword', text: 'class' }, { type: 'plain', text: ' ' }, { type: 'class', text: 'Developer' }, { type: 'bracket', text: ':' }],
+                [{ type: 'plain', text: '    ' }, { type: 'keyword', text: 'def' }, { type: 'plain', text: ' ' }, { type: 'function', text: '__init__' }, { type: 'bracket', text: '(' }, { type: 'self', text: 'self' }, { type: 'bracket', text: '):' }],
+                [{ type: 'plain', text: '        ' }, { type: 'self', text: 'self' }, { type: 'plain', text: '.name = ' }, { type: 'string', text: '"Hamidreza Mehrabadi"' }],
+                [{ type: 'plain', text: '        ' }, { type: 'self', text: 'self' }, { type: 'plain', text: '.role = ' }, { type: 'string', text: '"Backend Developer & QA"' }],
+                [{ type: 'plain', text: '        ' }, { type: 'self', text: 'self' }, { type: 'plain', text: '.company = ' }, { type: 'string', text: '"Part Software Group"' }],
+                [{ type: 'plain', text: '        ' }, { type: 'self', text: 'self' }, { type: 'plain', text: '.education = ' }, { type: 'string', text: '"B.Sc. Computer Engineering"' }],
+                [{ type: 'plain', text: '        ' }, { type: 'self', text: 'self' }, { type: 'plain', text: '.university = ' }, { type: 'string', text: '"Birjand Univ. of Tech"' }],
+                [{ type: 'plain', text: '        ' }, { type: 'self', text: 'self' }, { type: 'plain', text: '.personality = ' }, { type: 'string', text: '"ISTJ"' }],
+                [{ type: 'plain', text: '        ' }, { type: 'self', text: 'self' }, { type: 'plain', text: '.expertise = ' }, { type: 'bracket', text: '[' }],
+                [{ type: 'plain', text: '            ' }, { type: 'string', text: '"Python"' }, { type: 'plain', text: ', ' }, { type: 'string', text: '"Django"' }, { type: 'plain', text: ', ' }, { type: 'string', text: '"DRF"' }, { type: 'plain', text: ',' }],
+                [{ type: 'plain', text: '            ' }, { type: 'string', text: '"k6"' }, { type: 'plain', text: ', ' }, { type: 'string', text: '"Grafana"' }, { type: 'plain', text: ', ' }, { type: 'string', text: '"WebSocket"' }],
+                [{ type: 'plain', text: '        ' }, { type: 'bracket', text: ']' }],
+                [{ type: 'plain', text: '        ' }, { type: 'self', text: 'self' }, { type: 'plain', text: '.available = ' }, { type: 'bool', text: 'True' }],
+                [{ type: 'plain', text: '' }],
+                [{ type: 'comment', text: "# Let's build something amazing!" }],
+                [{ type: 'plain', text: 'dev = ' }, { type: 'class', text: 'Developer' }, { type: 'bracket', text: '()' }]
+            ];
+
+            const codeEl = document.getElementById('about-typewriter');
+            const statusEl = document.getElementById('about-status');
+            const codeBlock = codeEl.closest('.code-block');
+
+            const lineElements = [];
+            for (let i = 0; i < aboutLines.length; i++) {
+                const lineSpan = document.createElement('span');
+                lineSpan.className = 'code-line';
+                codeEl.appendChild(lineSpan);
+                lineElements.push(lineSpan);
+            }
+
+            let currentLine = 0, currentToken = 0, currentChar = 0, currentSpan = null;
+            let started = false;
+
+            function typeNext() {
+                if (currentLine >= aboutLines.length) {
+                    statusEl.innerHTML = '<span class="w-1.5 h-1.5 bg-green-500 rounded-full"></span><span class="text-green-500">✓ تکمیل شد</span>';
+                    codeBlock.classList.add('typing-done');
+                    return;
+                }
+
+                const line = aboutLines[currentLine];
+                const lineEl = lineElements[currentLine];
+
+                if (currentToken >= line.length) {
+                    lineEl.appendChild(document.createTextNode('\n'));
+                    currentLine++;
+                    currentToken = 0;
+                    currentChar = 0;
+                    currentSpan = null;
+                    setTimeout(typeNext, 120);
+                    return;
+                }
+
+                const token = line[currentToken];
+                if (currentChar === 0) {
+                    currentSpan = document.createElement('span');
+                    if (token.type !== 'plain') currentSpan.className = `t-${token.type}`;
+                    lineEl.appendChild(currentSpan);
+                }
+
+                if (currentChar < token.text.length) {
+                    currentSpan.textContent = token.text.substring(0, currentChar + 1);
+                    currentChar++;
+                    const char = token.text[currentChar - 1];
+                    const delay = char === ' ' ? 15 : (token.type === 'keyword' ? 50 : (token.type === 'comment' ? 25 : 30));
+                    setTimeout(typeNext, delay);
+                } else {
+                    currentToken++;
+                    currentChar = 0;
+                    currentSpan = null;
+                    setTimeout(typeNext, 60);
+                }
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !started) {
+                        started = true;
+                        setTimeout(typeNext, 300);
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            observer.observe(document.getElementById('about'));
+        })();
+    </script>
+</body>
+</html>

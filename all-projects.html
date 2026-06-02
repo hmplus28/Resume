@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        dark: {
+                            900: '#0a0a0f',
+                            800: '#12121a',
+                            700: '#1a1a24',
+                            600: '#24242f',
+                        },
+                        accent: {
+                            primary: '#3b82f6',
+                            secondary: '#8b5cf6',
+                            tertiary: '#06b6d4',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0f;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-border {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6, #06b6d4);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+        }
+
+        .nav-blur {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Project count badge animation */
+        .count-badge {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-dark-900 text-white antialiased min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-dark-900/80 nav-blur border-b border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="index.html" class="text-xl font-bold gradient-text">&lt;/HM.dev &gt;</a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="index.html" class="text-gray-400 hover:text-white transition-colors text-sm">Home</a>
+                    <a href="index.html#projects" class="text-accent-primary text-sm font-medium">Projects</a>
+                    <a href="index.html#about" class="text-gray-400 hover:text-white transition-colors text-sm">About</a>
+                    <a href="index.html#contact" class="text-gray-400 hover:text-white transition-colors text-sm">Contact</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="index.html" class="block py-2 text-gray-400 hover:text-white">Home</a>
+                <a href="index.html#projects" class="block py-2 text-accent-primary">Projects</a>
+                <a href="index.html#about" class="block py-2 text-gray-400 hover:text-white">About</a>
+                <a href="index.html#contact" class="block py-2 text-gray-400 hover:text-white">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="pt-32 pb-16 bg-gradient-to-b from-dark-800 to-dark-900 border-b border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center gap-2 text-sm text-gray-400 mb-4">
+                <a href="index.html" class="hover:text-accent-primary transition-colors">Home</a>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                <span class="text-white">All Projects</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                All <span class="gradient-text">Projects</span>
+            </h1>
+            <p class="text-gray-400 max-w-2xl">Browse my complete collection of <span id="project-count" class="text-accent-primary font-semibold">28</span> projects across backend development, real-time systems, automation tools, and academic work.</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="py-16 bg-dark-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Project Tabs -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="project-tab active px-5 py-2 rounded-full text-sm font-medium bg-accent-primary text-white" data-category="all">
+                    All <span class="ml-1 opacity-75">(28)</span>
+                </button>
+                <button class="project-tab px-5 py-2 rounded-full text-sm font-medium bg-dark-700 text-gray-400 hover:text-white transition-colors" data-category="corporate">
+                    Corporate <span class="ml-1 opacity-75">(5)</span>
+                </button>
+                <button class="project-tab px-5 py-2 rounded-full text-sm font-medium bg-dark-700 text-gray-400 hover:text-white transition-colors" data-category="freelance">
+                    Freelance <span class="ml-1 opacity-75">(9)</span>
+                </button>
+                <button class="project-tab px-5 py-2 rounded-full text-sm font-medium bg-dark-700 text-gray-400 hover:text-white transition-colors" data-category="academic">
+                    Academic <span class="ml-1 opacity-75">(4)</span>
+                </button>
+                <button class="project-tab px-5 py-2 rounded-full text-sm font-medium bg-dark-700 text-gray-400 hover:text-white transition-colors" data-category="other">
+                    Other <span class="ml-1 opacity-75">(10)</span>
+                </button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
+
+                <!-- ============= CORPORATE ============= -->
+                
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="corporate">
+                    <div class="h-40 bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-accent-primary font-medium bg-accent-primary/10 px-2 py-1 rounded">Corporate</span><span class="text-xs text-green-500">In Production</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">k6 Live Dashboard</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Real-time performance test visualization with live charts, CSV reports, and test comparison.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Node.js</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">k6</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">WebSocket</span></div>
+                        <a href="projects/k6-dashboard.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="corporate">
+                    <div class="h-40 bg-gradient-to-br from-cyan-600/20 to-blue-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-accent-primary font-medium bg-accent-primary/10 px-2 py-1 rounded">Corporate</span><span class="text-xs text-green-500">In Production</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Vira AI Testing</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Comprehensive test scenarios for AI super‑app with edge case analysis and process validation.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Manual Testing</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">AI QA</span></div>
+                        <a href="projects/vira-ai.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="corporate">
+                    <div class="h-40 bg-gradient-to-br from-purple-600/20 to-indigo-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-accent-primary font-medium bg-accent-primary/10 px-2 py-1 rounded">Corporate</span><span class="text-xs text-green-500">In Production</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Part Public Infrastructure Services</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Development & testing of internal services (payment, auth, file mgmt) built on Part Framework (JS).</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">JavaScript</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">k6</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Grafana</span></div>
+                        <a href="projects/public-services.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="corporate">
+                    <div class="h-40 bg-gradient-to-br from-green-600/20 to-teal-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-accent-primary font-medium bg-accent-primary/10 px-2 py-1 rounded">Corporate</span><span class="text-xs text-green-500">Completed</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">iKap (Electronic Promissory Note)</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Load/stress testing for electronic promissory note system used by banks.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">k6</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Grafana</span></div>
+                        <a href="projects/ikap.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="corporate">
+                    <div class="h-40 bg-gradient-to-br from-red-600/20 to-pink-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-accent-primary font-medium bg-accent-primary/10 px-2 py-1 rounded">Corporate</span><span class="text-xs text-green-500">In Production</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Part API Gateway</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Testing & optimization of internal API Gateway for request management and load distribution.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Node.js</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">k6</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Redis</span></div>
+                        <a href="projects/api-gateway.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <!-- ============= FREELANCE ============= -->
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="freelance">
+                    <div class="h-40 bg-gradient-to-br from-green-600/20 to-cyan-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-green-500 font-medium bg-green-500/10 px-2 py-1 rounded">Freelance</span><span class="text-xs text-green-500">In Production</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Smart GPS Tracking</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Real-time tracking platform with MQTT protocol, live map, and route history.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Django</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Channels</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">MQTT</span></div>
+                        <a href="projects/gps-tracking.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="freelance">
+                    <div class="h-40 bg-gradient-to-br from-yellow-600/20 to-orange-600/20 flex items-center justify-center relative">
+                        <svg class="w-16 h-16 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
+                        </svg>
+                        <div class="absolute top-3 right-3 bg-yellow-500 text-dark-900 text-xs font-bold px-2 py-1 rounded">1st Place</div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-yellow-500 font-medium bg-yellow-500/10 px-2 py-1 rounded">Award Winner</span><span class="text-xs text-blue-500">MVP</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Zarin Kesht</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Farm management system with AI chat, crop calendar, and offline PWA support.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Django</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">PWA</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">AI</span></div>
+                        <a href="projects/zarin-kesht.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="freelance">
+                    <div class="h-40 bg-gradient-to-br from-purple-600/20 to-pink-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-purple-500 font-medium bg-purple-500/10 px-2 py-1 rounded">Freelance</span><span class="text-xs text-yellow-500">Deploying</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">University Ticketing</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Support ticketing and survey platform with live chat via WebSocket.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Django</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">React</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">N8N</span></div>
+                        <a href="projects/ticketing.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="freelance">
+                    <div class="h-40 bg-gradient-to-br from-indigo-600/20 to-purple-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-indigo-500 font-medium bg-indigo-500/10 px-2 py-1 rounded">Freelance</span><span class="text-xs text-blue-500">Phase 1</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Internal Messenger</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Private and group chat with image sharing and real-time updates.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Django</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Vue.js</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Channels</span></div>
+                        <a href="projects/messenger.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="freelance">
+                    <div class="h-40 bg-gradient-to-br from-teal-600/20 to-green-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-green-500 font-medium bg-green-500/10 px-2 py-1 rounded">Freelance</span><span class="text-xs text-blue-500">In Study</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Portfolio Management</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Risk analysis & portfolio optimization tool for Iranian financial markets.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Django</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">DRF</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">MySQL</span></div>
+                        <a href="projects/portfolio.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="freelance">
+                    <div class="h-40 bg-gradient-to-br from-orange-600/20 to-red-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-green-500 font-medium bg-green-500/10 px-2 py-1 rounded">Freelance</span><span class="text-xs text-green-500">Completed</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Device Monitoring System</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Dashboard to monitor IoT devices via MQTT with admin panel and search.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Django</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">SQLite</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">MQTT</span></div>
+                        <a href="projects/monitoring.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="freelance">
+                    <div class="h-40 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-green-500 font-medium bg-green-500/10 px-2 py-1 rounded">Freelance</span><span class="text-xs text-yellow-500">Deploying</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Anonymous Martyrs Website</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Informational website with donation gateway, gallery, and ticketing for Neyshabur martyrs complex.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Django</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Zarinpal</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">HTML/CSS</span></div>
+                        <a href="projects/martyrs.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="freelance">
+                    <div class="h-40 bg-gradient-to-br from-purple-600/20 to-blue-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-green-500 font-medium bg-green-500/10 px-2 py-1 rounded">Freelance</span><span class="text-xs text-green-500">Completed</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Frequency Analysis Platform</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Web dashboard for industrial frequency analysis, with auth and API integration.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Django</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Bootstrap</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Chart.js</span></div>
+                        <a href="projects/frequency.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="freelance">
+                    <div class="h-40 bg-gradient-to-br from-pink-600/20 to-rose-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-green-500 font-medium bg-green-500/10 px-2 py-1 rounded">Freelance</span><span class="text-xs text-green-500">Completed</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Insurance Reminder System</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Automated SMS reminder for insurance expiry using Excel upload and Celery.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Django</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Celery</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">SMS API</span></div>
+                        <a href="projects/insurance.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <!-- ============= ACADEMIC ============= -->
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="academic">
+                    <div class="h-40 bg-gradient-to-br from-gray-600/20 to-slate-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-gray-400 font-medium bg-gray-500/10 px-2 py-1 rounded">Academic</span><span class="text-xs text-green-500">Completed</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Turing Machine Simulator</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Step-by-step Turing machine simulator with visual tape and state control.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">HTML</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">CSS</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">JavaScript</span></div>
+                        <a href="projects/turing.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="academic">
+                    <div class="h-40 bg-gradient-to-br from-blue-600/20 to-indigo-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-gray-400 font-medium bg-gray-500/10 px-2 py-1 rounded">Academic</span><span class="text-xs text-green-500">Completed</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Digital Marketing Website</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Modern landing page for digital marketing services with portfolio and contact form.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">HTML5</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">CSS3</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Bootstrap</span></div>
+                        <a href="projects/marketing.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="academic">
+                    <div class="h-40 bg-gradient-to-br from-red-600/20 to-yellow-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-gray-400 font-medium bg-gray-500/10 px-2 py-1 rounded">Academic</span><span class="text-xs text-green-500">Completed</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Database Recovery Project</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Implementation of undo/redo, checkpointing algorithms for database recovery.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">SQL</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">ACID</span></div>
+                        <a href="projects/db-recovery.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="academic">
+                    <div class="h-40 bg-gradient-to-br from-green-600/20 to-teal-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-gray-400 font-medium bg-gray-500/10 px-2 py-1 rounded">Academic</span><span class="text-xs text-green-500">Completed</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Distributed Concurrency Simulator</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Simulator for two-phase locking and timestamp ordering in distributed databases.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Python</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Tkinter</span></div>
+                        <a href="projects/concurrency.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <!-- ============= OTHER ============= -->
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="other">
+                    <div class="h-40 bg-gradient-to-br from-teal-600/20 to-cyan-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-teal-400 font-medium bg-teal-400/10 px-2 py-1 rounded">Tool</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Local Task Manager</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Client‑side task manager with Persian calendar, change log, and JSON backup.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">JS</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">LocalStorage</span></div>
+                        <a href="projects/task-manager.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="other">
+                    <div class="h-40 bg-gradient-to-br from-indigo-600/20 to-purple-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-teal-400 font-medium bg-teal-400/10 px-2 py-1 rounded">Tool</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Advanced Notebook (PWA)</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Notebook with cloud sync, dark mode, and PWA support.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">PWA</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">IndexedDB</span></div>
+                        <a href="projects/notebook.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="other">
+                    <div class="h-40 bg-gradient-to-br from-gray-600/20 to-slate-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-teal-400 font-medium bg-teal-400/10 px-2 py-1 rounded">Tool</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Code Comment Stripper</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Desktop tool to remove comments from source code with backup and dry run.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Python</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Tkinter</span></div>
+                        <a href="projects/comment-stripper.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="other">
+                    <div class="h-40 bg-gradient-to-br from-blue-600/20 to-lightblue-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-teal-400 font-medium bg-teal-400/10 px-2 py-1 rounded">Tool</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Quick Links Dashboard</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Modern bookmark dashboard with color categories, search, and JSON backup.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Vanilla JS</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">LocalStorage</span></div>
+                        <a href="projects/links-dashboard.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="other">
+                    <div class="h-40 bg-gradient-to-br from-pink-600/20 to-rose-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-teal-400 font-medium bg-teal-400/10 px-2 py-1 rounded">Tool</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">HTML/CSS/JS Splitter & Merger</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Utility to split or merge front-end files, preserving structure.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Python</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">BeautifulSoup</span></div>
+                        <a href="projects/splitter.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="other">
+                    <div class="h-40 bg-gradient-to-br from-green-600/20 to-lime-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01M8.111 16.404L6.7 14.99a9 9 0 0110.6 0l-1.41 1.414" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-teal-400 font-medium bg-teal-400/10 px-2 py-1 rounded">Tool</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Wi‑Fi Manager</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Windows Wi‑Fi monitor with signal strength alerts and automatic reconnection.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Python</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Tkinter</span></div>
+                        <a href="projects/wifi-manager.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="other">
+                    <div class="h-40 bg-gradient-to-br from-orange-600/20 to-amber-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-teal-400 font-medium bg-teal-400/10 px-2 py-1 rounded">Tool</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">LAN File Share</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Local network file sharing tool with GUI and CLI (Python HTTP server).</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Python</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Tkinter</span></div>
+                        <a href="projects/lan-share.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="other">
+                    <div class="h-40 bg-gradient-to-br from-cyan-600/20 to-blue-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-teal-400 font-medium bg-teal-400/10 px-2 py-1 rounded">Extension</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Time Duration Calculator</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Browser extension for quick time difference calculation (GitLab time spent).</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Chrome Extension</span></div>
+                        <a href="projects/time-calc.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="other">
+                    <div class="h-40 bg-gradient-to-br from-purple-600/20 to-violet-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-teal-400 font-medium bg-teal-400/10 px-2 py-1 rounded">Extension</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">GitLab Time Aggregator</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Chrome extension to extract & sum time spent from GitLab issues.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Chrome Extension</span><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">GitLab API</span></div>
+                        <a href="projects/time-aggregator.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+                <div class="project-card bg-dark-700 rounded-2xl overflow-hidden border border-gray-800 card-hover" data-category="other">
+                    <div class="h-40 bg-gradient-to-br from-red-600/20 to-pink-600/20 flex items-center justify-center">
+                        <svg class="w-16 h-16 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3"><span class="text-xs text-teal-400 font-medium bg-teal-400/10 px-2 py-1 rounded">Script</span></div>
+                        <h3 class="text-lg font-semibold text-white mb-2">GitLab Comment Template</h3>
+                        <p class="text-gray-400 text-sm mb-4 line-clamp-2">Tampermonkey script for auto-inserting daily progress report template in GitLab.</p>
+                        <div class="flex flex-wrap gap-2 mb-4"><span class="text-xs bg-dark-600 text-gray-300 px-2 py-1 rounded">Tampermonkey</span></div>
+                        <a href="projects/comment-template.html" class="inline-flex items-center text-sm text-accent-primary hover:text-accent-secondary transition-colors">View Details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Back to Home -->
+            <div class="text-center mt-16">
+                <a href="index.html"
+                    class="inline-flex items-center px-6 py-3 rounded-xl border border-gray-700 hover:border-gray-500 transition-colors text-white hover:text-accent-primary">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18"/>
+                    </svg>
+                    Back to Home
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-800 border-t border-gray-800 py-8 mt-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400 text-sm">
+                © 2026 HamidrezaMehrabadi. All rights reserved.
+                <span class="mx-2">|</span>
+                Built with <span class="text-red-500">♥</span> and Tailwind CSS
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu
+        document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Project filter
+        const tabs = document.querySelectorAll('.project-tab');
+        const cards = document.querySelectorAll('.project-card');
+        const countEl = document.getElementById('project-count');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function () {
+                const category = this.dataset.category;
+
+                tabs.forEach(t => {
+                    t.classList.remove('bg-accent-primary', 'text-white');
+                    t.classList.add('bg-dark-700', 'text-gray-400');
+                });
+                this.classList.remove('bg-dark-700', 'text-gray-400');
+                this.classList.add('bg-accent-primary', 'text-white');
+
+                let visibleCount = 0;
+                cards.forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (countEl) countEl.textContent = visibleCount;
+            });
+        });
+    </script>
+</body>
+</html>
